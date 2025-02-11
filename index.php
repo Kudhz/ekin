@@ -26,18 +26,16 @@
             <strong>Auto Ekinerja:</strong><br>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
-            ID: <input type="text" name="id"  class="form-control"id="id" placeholder="1234" required><br>
+            ID:   <input type="text" name="id"  class="form-control"id="id" placeholder="1234" required><br>
+            <input type="submit" class="btn btn-primary" value="Send">
         <!-- Key: <input type="text" name="key2" class="form-control" id="key2" required><br> -->
         <!-- Value Realisasi: <textarea name="value" class="form-control" id="value" cols="50" rows="10"></textarea><br> -->
         <textarea name="value" class="form-control d-none" id="value" cols="50" rows="10">
 Menyusun Laporan kegiatan performance check peralatan listrik yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
 Menyampaikan Laporan Dokumen Laporan kegiatan performance check peralatan listrik kepada pimpinan</textarea><br>
-        <input type="submit" class="btn btn-primary" value="Send">
     </div>
     </form>
-    
 
-    
     <script>
         async function handleSubmit(event) {
             event.preventDefault(); // Mencegah submit default
