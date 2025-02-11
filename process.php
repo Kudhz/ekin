@@ -22,10 +22,9 @@ Menyampaikan Laporan Dokumen Tersusunnya laporan pemeliharaan Fasilitas Sisi Uda
 Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedung terminal kepada pimpinan";
     $values = [$value1, $value2, $value3, $value4, $value5, $value6];
     $totalValues = count($values);
+    $realValue = array ("1 Document", "100 Persen", "1 Bulan");
+    $realIndex = 0;
     $drive = "https://drive.google.com/drive/folders/1r67Z-AID_BG7xP6kNBBN509U4Jk0uLW-?usp=sharing";
-    $docReal = "1 Document";
-    $perReal = "100 Persen";
-    $bulReal = "1 Bulan";
 
     for ($i = 0; $i < 18; $i++) {
         $id = $_POST["id"];
@@ -35,6 +34,22 @@ Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedu
             'id' => $currentId,      // Include the ID
             'key' => $key,    // Include the Key
             'value' => $value,  // Include the Value
+            // ... any other data required by the API ...
+        ];
+
+        $realisasi2 = [
+            'id' => $currentId,      // Include the ID
+            'key' => $realisasi,    // Include the Key
+            'value' => $realValue[$realIndex],  // Include the Value
+            // ... any other data required by the API ...
+        ];
+
+        $realIndex = ($realIndex + 1) % 3;
+
+        $buktiDukung = [
+            'id' => $currentId,      // Include the ID
+            'key' => $bukti,    // Include the Key
+            'value' => $drive,  // Include the Value
             // ... any other data required by the API ...
         ];
 
@@ -60,6 +75,8 @@ Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedu
         ];
 
         $postString7 = http_build_query($renaksi);
+        $postString8 = http_build_query($realisasi2);
+        $postString9 = http_build_query($buktiDukung);
 
         $ch7 = curl_init($url);
         curl_setopt_array($ch7, [
@@ -71,7 +88,30 @@ Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedu
             CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
         ]);
 
+        $ch8 = curl_init($url);
+        curl_setopt_array($ch8, [
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_POSTFIELDS => $postString8,
+            CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
+            CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
+        ]);
+
+        $ch9 = curl_init($url);
+        curl_setopt_array($ch9, [
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_POSTFIELDS => $postString9,
+            CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
+            CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
+        ]);
+        
+
         $response7 = curl_exec($ch7);
+        $response8 = curl_exec($ch8);
+        $response8 = curl_exec($ch9);
 
         if (curl_errno($ch7)) {
             http_response_code(400);
@@ -82,6 +122,8 @@ Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedu
         }
     
         curl_close($ch7);
+        curl_close($ch8);
+        curl_close($ch9);
     }
     
 }
