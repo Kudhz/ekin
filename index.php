@@ -26,7 +26,7 @@
             <strong>Auto Ekinerja:</strong><br>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
-            ID:  <br> <input type="text" name="id"  class="form-control mt-50" id="id" placeholder="1234" required><br>
+            <br> <input type="text" name="id"  class="form-control mt-50" id="id" placeholder="ID 1234..." required><br>
             <input type="submit" class="btn btn-primary" value="Send">
         <!-- Key: <input type="text" name="key2" class="form-control" id="key2" required><br> -->
         <!-- Value Realisasi: <textarea name="value" class="form-control" id="value" cols="50" rows="10"></textarea><br> -->
