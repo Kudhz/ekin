@@ -34,8 +34,8 @@ Menyampaikan Laporan Dokumen Laporan kegiatan performance check peralatan listri
         <input type="submit" class="btn btn-primary" value="Send">
     </div>
     </form>
-    <div class="alert alert-success" id="success-message">Data submitted successfully!</div>
-    <div class="malert alert-danger" id="error-message"></div>
+    <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
+    <div class="malert alert-danger message" id="error-message"></div>
 
     
     <script>
