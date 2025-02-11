@@ -10,9 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $bukti = "bukti_dukung";
     $value = $_POST["value"];
     $value2 = $_POST["value2"];
-    $docReal = "Document";
-    $perReal = "Persen";
-    $bulReal = "Bulan";
+    $docReal = "1 Document";
+    $perReal = "100 Persen";
+    $bulReal = "1 Bulan";
 
     $id2 = $id + 2;
     $id3 = $id + 4;
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // ... any other data required by the API ...
     ];
 
-    // $postString = http_build_query($postData);
+    $postString = http_build_query($postData);
     // $postString2 = http_build_query($postData2);
     // $postString3 = http_build_query($postData3);
     $postString4 = http_build_query($realisasiDoc);
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
         "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
         "X-Requested-With: XMLHttpRequest",
-        "Content-Length: " . strlen($postString4),
+        "Content-Length: " . strlen($postString),
         "Origin: https://e-kinerja.kemenhub.go.id",
         "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
         "Sec-Fetch-Dest: empty",
