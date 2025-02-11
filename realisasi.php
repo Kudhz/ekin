@@ -23,7 +23,7 @@
 <body>
     <form id="form" action="process2.php" method="post" onsubmit="return handleSubmit(event)">
     <div class="container">
-            <strong>Renaksi:</strong><br>
+            <strong>Renaksi:</strong>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
             ID: <input type="text" name="id"  class="form-control"id="id" required><br>
