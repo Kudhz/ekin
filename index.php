@@ -25,8 +25,8 @@
     <div class="container">
             <strong>Record 1:</strong><br>
             ID: <input type="text" name="id"  class="form-control"id="id" required><br>
-        Key: <input type="text" name="key2" class="form-control" id="key2" required><br>
-        Value Realisasi: <textarea name="value2" class="form-control" id="value2" cols="50" rows="10"></textarea><br>
+        <!-- Key: <input type="text" name="key2" class="form-control" id="key2" required><br> -->
+        Value Realisasi: <textarea name="value" class="form-control" id="value" cols="50" rows="10"></textarea><br>
         <!-- Value: <textarea name="value" class="form-control" id="value" cols="50" rows="10">
 Menyusun Laporan kegiatan performance check peralatan listrik yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
 Menyampaikan Laporan Dokumen Laporan kegiatan performance check peralatan listrik kepada pimpinan</textarea><br> -->
