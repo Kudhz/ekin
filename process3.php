@@ -15,26 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $perReal = "100 Persen";
     $bulReal = "1 Bulan";
 
-    $headers = [
-        "Host: e-kinerja.kemenhub.go.id",
-        "Cookie: _ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Imd3dkNRNW9uU2RpZmpKUmlFZk0zVkE9PSIsInZhbHVlIjoiaXE1OWRXRHQ4MkZCYkRENVdNcG9YcEZlN0pGdE51RXlxMFZGWEpRL1BFUWdPczRpQ3NlK3JkdFdybGNnVVVjbGVnbFlvRFB4eDl4ekdlZC9GSjhKRDFVYWVKSGVKVExLREszSWk2V0VVNXZpL05OM2lsU3liOG4rZlZZcSt0dFdKU0Y1YWdoQWdqY3ppYmprY3U0c0RSNTZLY0prWEtCczB4NGE3d0V5YjNOb3NlTWl4a2dXdjM1dzZrdzlDbStTT1dUMFYrekkwSjRnLzlneUVQc01XZHhpY2FTbGw1Qkh6UmpuU2wrNEhaZz0iLCJtYWMiOiIyYmEwMTE2ZTQ0NzZmNTEyMjA3ZDc0NDk2NWZkZjQwMzJmY2ZhYmM0NGZhNTM1Zjg5YmEwODMzZjVlOGZmNDQ3IiwidGFnIjoiIn0%3D; XSRF-TOKEN=eyJpdiI6IlNPVmViYkc1QjJGMlNuMlpHb0ZUMnc9PSIsInZhbHVlIjoiWkUxQXdLcHpTQTJCVm1LcWVrbkhaRkZFMEhSeGh1L3EyUngwYmdCUmZkMFRKZjJyOWVkNzMybURnTjViNUQwZy9oNDFBdmorYUpWeFc5Z1Y2TlpIUlZ4LzVDSHkzUk4rMUZsMENWQlV4YUFjRUJvdjl1VDdULzA2WnVwZm5yRjIiLCJtYWMiOiI0ZGU4ZjM1NTllMDM0YTc5NDJkODAxM2I5OTFiNmRkYzUwNDA5ZjMxN2ZiODYxNjZmM2RlNWE4NjY5MGJhMTc5IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IjkrOERXNGc0emJzQ3FVbS94SDh6YXc9PSIsInZhbHVlIjoiUkVJR2ZXbWduQ254VlNkMG5GTURqY3BWVWN4VUZ3S25HT2E3R3FNb0dSOCtDNWFQQ0tndUFDMXorS0N0WFJnTHpHRC9KRVRqV01mMVh1YkZOVUs2MWJwcTZ4QWllWWpHWk5BUVlEdVZJOG1ZeVVJS29OZDlCMXpZRUtBZGdXQWEiLCJtYWMiOiI1YmI2ZmU5YmQ5ZmM1NDM4MGU1YTg1MzVkZDkwZjUyODY5NGQzZThmNTJlNTk4ODU3ODU4NDBiOTJlYTIwZjIwIiwidGFnIjoiIn0%3D; TS0168dff9=01ad371bc429a2ee040716f5b2169723292b3f2564d7c02849198764d36a503930fe0302e1dfc20f04f75787067415fa1568bc258dc35387f80dd4a557a79b14ac2594631516b6659a7e083cc2fc63dc8933e1693b",
-        "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
-        "Accept: */*",
-        "Accept-Language: en-US,en;q=0.5",
-        "Accept-Encoding: gzip, deflate, br",
-        "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
-        "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
-        "X-Requested-With: XMLHttpRequest",
-        // "Content-Length: " . strlen($postString6),
-        "Origin: https://e-kinerja.kemenhub.go.id",
-        "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
-        "Sec-Fetch-Dest: empty",
-        "Sec-Fetch-Mode: cors",
-        "Sec-Fetch-Site: same-origin",
-        "Priority: u=0",
-        "Te: trailers",
-        "Connection: keep-alive",
-    ];
+    
 
     for ($i = 0; $i < 18; $i++) {
         $id = $_POST["id"];
@@ -45,6 +26,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'value' => $drive,  // Include the Value
             // ... any other data required by the API ...
         ];
+
+        $headers = [
+            "Host: e-kinerja.kemenhub.go.id",
+            "Cookie: _ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Imd3dkNRNW9uU2RpZmpKUmlFZk0zVkE9PSIsInZhbHVlIjoiaXE1OWRXRHQ4MkZCYkRENVdNcG9YcEZlN0pGdE51RXlxMFZGWEpRL1BFUWdPczRpQ3NlK3JkdFdybGNnVVVjbGVnbFlvRFB4eDl4ekdlZC9GSjhKRDFVYWVKSGVKVExLREszSWk2V0VVNXZpL05OM2lsU3liOG4rZlZZcSt0dFdKU0Y1YWdoQWdqY3ppYmprY3U0c0RSNTZLY0prWEtCczB4NGE3d0V5YjNOb3NlTWl4a2dXdjM1dzZrdzlDbStTT1dUMFYrekkwSjRnLzlneUVQc01XZHhpY2FTbGw1Qkh6UmpuU2wrNEhaZz0iLCJtYWMiOiIyYmEwMTE2ZTQ0NzZmNTEyMjA3ZDc0NDk2NWZkZjQwMzJmY2ZhYmM0NGZhNTM1Zjg5YmEwODMzZjVlOGZmNDQ3IiwidGFnIjoiIn0%3D; XSRF-TOKEN=eyJpdiI6IlNPVmViYkc1QjJGMlNuMlpHb0ZUMnc9PSIsInZhbHVlIjoiWkUxQXdLcHpTQTJCVm1LcWVrbkhaRkZFMEhSeGh1L3EyUngwYmdCUmZkMFRKZjJyOWVkNzMybURnTjViNUQwZy9oNDFBdmorYUpWeFc5Z1Y2TlpIUlZ4LzVDSHkzUk4rMUZsMENWQlV4YUFjRUJvdjl1VDdULzA2WnVwZm5yRjIiLCJtYWMiOiI0ZGU4ZjM1NTllMDM0YTc5NDJkODAxM2I5OTFiNmRkYzUwNDA5ZjMxN2ZiODYxNjZmM2RlNWE4NjY5MGJhMTc5IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6IjkrOERXNGc0emJzQ3FVbS94SDh6YXc9PSIsInZhbHVlIjoiUkVJR2ZXbWduQ254VlNkMG5GTURqY3BWVWN4VUZ3S25HT2E3R3FNb0dSOCtDNWFQQ0tndUFDMXorS0N0WFJnTHpHRC9KRVRqV01mMVh1YkZOVUs2MWJwcTZ4QWllWWpHWk5BUVlEdVZJOG1ZeVVJS29OZDlCMXpZRUtBZGdXQWEiLCJtYWMiOiI1YmI2ZmU5YmQ5ZmM1NDM4MGU1YTg1MzVkZDkwZjUyODY5NGQzZThmNTJlNTk4ODU3ODU4NDBiOTJlYTIwZjIwIiwidGFnIjoiIn0%3D; TS0168dff9=01ad371bc429a2ee040716f5b2169723292b3f2564d7c02849198764d36a503930fe0302e1dfc20f04f75787067415fa1568bc258dc35387f80dd4a557a79b14ac2594631516b6659a7e083cc2fc63dc8933e1693b",
+            "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
+            "Accept: */*",
+            "Accept-Language: en-US,en;q=0.5",
+            "Accept-Encoding: gzip, deflate, br",
+            "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
+            "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
+            "X-Requested-With: XMLHttpRequest",
+            // "Content-Length: " . strlen($postString6),
+            "Origin: https://e-kinerja.kemenhub.go.id",
+            "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
+            "Sec-Fetch-Dest: empty",
+            "Sec-Fetch-Mode: cors",
+            "Sec-Fetch-Site: same-origin",
+            "Priority: u=0",
+            "Te: trailers",
+            "Connection: keep-alive",
+        ];
+        
         $postString7 = http_build_query($buktiDukung);
 
         $ch7 = curl_init($url);
