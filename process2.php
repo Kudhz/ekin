@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $renaksi = [
             'id' => $currentId,      // Include the ID
-            'key' => $key,    // Include the Key
+            'key' => $realisasi,    // Include the Key
             'value' => $realValue[$realIndex],  // Include the Value
             // ... any other data required by the API ...
         ];
