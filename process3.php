@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $postString7 = http_build_query($buktiDukung);
 
         $ch7 = curl_init($url);
-        curl_setopt_array($ch4, [
+        curl_setopt_array($ch7, [
             CURLOPT_POST => true,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HTTPHEADER => $headers,
