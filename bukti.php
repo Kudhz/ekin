@@ -1,3 +1,13 @@
+<?php
+// Mulai session
+session_start();
+
+// Jika form telah disubmit, simpan id ke session
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $_SESSION['id'] = $_POST['id'];
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <>
