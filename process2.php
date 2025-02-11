@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
         "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
         "X-Requested-With: XMLHttpRequest",
-        "Content-Length: " . strlen($postString1),
+        "Content-Length: " . strlen($postString2),
         "Origin: https://e-kinerja.kemenhub.go.id",
         "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
         "Sec-Fetch-Dest: empty",
