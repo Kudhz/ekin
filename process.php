@@ -4,164 +4,84 @@ $url = "https://e-kinerja.kemenhub.go.id/skp/renaksi/editdetailitem";
 
 // Get data from the HTML form (assuming you've already processed it)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_POST["id"];
+    
     $key = "renaksi";
     $realisasi = "realisasi";
-    // $bukti = "bukti_dukung";
-    $value = $_POST["value"];
-    $value2 = $_POST["value2"];
+    $bukti = "bukti_dukung";
+    $value1 = "Menyusun Laporan kegiatan performance check peralatan listrik yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan kegiatan performance check peralatan listrik kepada pimpinan";
+    $value2 = "Menyusun dokumen Laporan pengecekan peralatan listrik di sisi udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan pengecekan peralatan listrik di sisi udara kepada pimpinan";
+    $value3 = "Menyusun dokumen Laporan hasil pengecekan peralatan listrik di sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan hasil pengecekan peralatan listrik di sisi udara dan sisi darat kepada pimpinan";
+    $value4 = "Menyusun dokumen Laporan pengecekan peralatan listrik di sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan pengecekan peralatan listrik di sisi darat kepada pimpinan";
+    $value5 = "Menyusun dokumen Tersusunnya laporan pemeliharaan Fasilitas Sisi Udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Tersusunnya laporan pemeliharaan Fasilitas Sisi Udara kepada pimpinan";
+    $value6 = "Menyusun dokumen Tersusunnya laporan perawatan dan pemeliharaan gedung terminal yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedung terminal kepada pimpinan";
+    $values = [$value1, $value2, $value3, $value4, $value5, $value6];
+    $totalValues = count($values);
+    $drive = "https://drive.google.com/drive/folders/1r67Z-AID_BG7xP6kNBBN509U4Jk0uLW-?usp=sharing";
     $docReal = "1 Document";
-    $perReal = "100% Persen";
-    // $bulReal = "1 Bulan";
+    $perReal = "100 Persen";
+    $bulReal = "1 Bulan";
 
-    $id2 = $id + 2;
-    $id3 = $id + 4;
+    for ($i = 0; $i < 18; $i++) {
+        $id = $_POST["id"];
+        $currentId = $id + ($i * 2);
+        $value = $values[floor($i / 3) % $totalValues];
+        $renaksi = [
+            'id' => $currentId,      // Include the ID
+            'key' => $key,    // Include the Key
+            'value' => $value,  // Include the Value
+            // ... any other data required by the API ...
+        ];
 
-    $postData = [
-        'id' => $id,      // Include the ID
-        'key' => $key,    // Include the Key
-        'value' => $value,  // Include the Value
-        // ... any other data required by the API ...
-    ];
+        $headers = [
+            "Host: e-kinerja.kemenhub.go.id",
+            "Cookie: _ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Imd3dkNRNW9uU2RpZmpKUmlFZk0zVkE9PSIsInZhbHVlIjoiaXE1OWRXRHQ4MkZCYkRENVdNcG9YcEZlN0pGdE51RXlxMFZGWEpRL1BFUWdPczRpQ3NlK3JkdFdybGNnVVVjbGVnbFlvRFB4eDl4ekdlZC9GSjhKRDFVYWVKSGVKVExLREszSWk2V0VVNXZpL05OM2lsU3liOG4rZlZZcSt0dFdKU0Y1YWdoQWdqY3ppYmprY3U0c0RSNTZLY0prWEtCczB4NGE3d0V5YjNOb3NlTWl4a2dXdjM1dzZrdzlDbStTT1dUMFYrekkwSjRnLzlneUVQc01XZHhpY2FTbGw1Qkh6UmpuU2wrNEhaZz0iLCJtYWMiOiIyYmEwMTE2ZTQ0NzZmNTEyMjA3ZDc0NDk2NWZkZjQwMzJmY2ZhYmM0NGZhNTM1Zjg5YmEwODMzZjVlOGZmNDQ3IiwidGFnIjoiIn0%3D; XSRF-TOKEN=eyJpdiI6InBBeUY5L1NnWjNHY2JGQTZiWXpaZHc9PSIsInZhbHVlIjoicS83cHA3V1ZTa1p0eDdMNS9ORFYvaTlsRjNQMVRqQThGWUZQSHdkRlJYRUpMTUlxRU5zY0VwVWVEbmVCck91ZUhoVWthOVlmdVJPR1Y4YzZkY1c1M1UrVi9FSWxSUFE4WW90SU9rajJmczZwdGxTaG1iOWZGYUFHUTN0eWF2eFQiLCJtYWMiOiI0OWE4OGM0NjQ5YjQxMDhkZTgxNWM5MzA5M2Q2OGViYjNiZDU1MWQ2YjM5YmI0NDMwNDlmNzhlZmIxOWEwMzA0IiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InVWcHFRaU9OZ0ptVThoL3J4L3RYalE9PSIsInZhbHVlIjoidTYzbG1tODdHMUZIT3JFcGdFc3F6cEJOeXNjbTBkanlUaG9obU9janAzQ2ZLZGYxR0lTWUlESDRKam0zUUZsMTBYTjVYVmhiNFV6Z2poVVhjUmJjN0N1aytIeU96aUFqQXRRcGpWR0hMVGhxek03OTR5UUdrMnArdzNvSGZZTnkiLCJtYWMiOiI4YmUwOTRlZTRkM2MzN2Y4YTM5OWY5ZDQxYTEzNGY5NzgxZDMzYWJhYjZhNGQ3OWIyNjc1NjE0ZWQ5OWQ1MmQzIiwidGFnIjoiIn0%3D; TS0168dff9=01ad371bc4632b428ad3c22bc198e0145fbdddbbe1d7c02849198764d36a503930fe0302e1dfc20f04f75787067415fa1568bc258d52bf9e8957b89844c75e1b97d61146fd07836cdff42b335b2f5e88c6750cf403",
+            "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
+            "Accept: */*",
+            "Accept-Language: en-US,en;q=0.5",
+            "Accept-Encoding: gzip, deflate, br",
+            "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
+            "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
+            "X-Requested-With: XMLHttpRequest",
+            // "Content-Length: " . strlen($postString6),
+            "Origin: https://e-kinerja.kemenhub.go.id",
+            "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
+            "Sec-Fetch-Dest: empty",
+            "Sec-Fetch-Mode: cors",
+            "Sec-Fetch-Site: same-origin",
+            "Priority: u=0",
+            "Te: trailers",
+            "Connection: keep-alive",
+        ];
 
-    $postData2 = [
-        'id' => $id2,      // Include the ID
-        'key' => $key,    // Include the Key
-        'value' => $value,  // Include the Value
-        // ... any other data required by the API ...
-    ];
+        $postString7 = http_build_query($renaksi);
 
-    $postData3 = [
-        'id' => $id3,      // Include the ID
-        'key' => $key,    // Include the Key
-        'value' => $value,  // Include the Value
-        // ... any other data required by the API ...
-    ];
+        $ch7 = curl_init($url);
+        curl_setopt_array($ch7, [
+            CURLOPT_POST => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER => $headers,
+            CURLOPT_POSTFIELDS => $postString7,
+            CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
+            CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
+        ]);
 
-    $realisasiDoc = [
-        'id' => $id,      // Include the ID
-        'key' => $realisasi,    // Include the Key
-        'value' => $docReal,  // Include the Value
-        // ... any other data required by the API ...
-    ];
+        $response7 = curl_exec($ch7);
 
-    $realisasiDoc2 = [
-        'id' => $id2,      // Include the ID
-        'key' => $realisasi,    // Include the Key
-        'value' => $perReal,  // Include the Value
-        // ... any other data required by the API ...
-    ];
-
-    // $realisasiDoc3 = [
-    //     'id' => $id3,      // Include the ID
-    //     'key' => $realisasi,    // Include the Key
-    //     'value' => $bulReal,  // Include the Value
-    //     // ... any other data required by the API ...
-    // ];
-
-    $postString = http_build_query($postData);
-    $postString2 = http_build_query($postData2);
-    $postString3 = http_build_query($postData3);
-    // $postString4 = http_build_query($realisasiDoc);
-    // $postString5 = http_build_query($realisasiDoc2);
-    // $postString6 = http_build_query($realisasiDoc3);
-
-    $headers = [
-        "Host: e-kinerja.kemenhub.go.id",
-        "Cookie: _ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817; remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d=eyJpdiI6Imd3dkNRNW9uU2RpZmpKUmlFZk0zVkE9PSIsInZhbHVlIjoiaXE1OWRXRHQ4MkZCYkRENVdNcG9YcEZlN0pGdE51RXlxMFZGWEpRL1BFUWdPczRpQ3NlK3JkdFdybGNnVVVjbGVnbFlvRFB4eDl4ekdlZC9GSjhKRDFVYWVKSGVKVExLREszSWk2V0VVNXZpL05OM2lsU3liOG4rZlZZcSt0dFdKU0Y1YWdoQWdqY3ppYmprY3U0c0RSNTZLY0prWEtCczB4NGE3d0V5YjNOb3NlTWl4a2dXdjM1dzZrdzlDbStTT1dUMFYrekkwSjRnLzlneUVQc01XZHhpY2FTbGw1Qkh6UmpuU2wrNEhaZz0iLCJtYWMiOiIyYmEwMTE2ZTQ0NzZmNTEyMjA3ZDc0NDk2NWZkZjQwMzJmY2ZhYmM0NGZhNTM1Zjg5YmEwODMzZjVlOGZmNDQ3IiwidGFnIjoiIn0%3D; XSRF-TOKEN=eyJpdiI6IlptR0tuaGsrdWU1bHBsZFBSelNBNnc9PSIsInZhbHVlIjoic0ZkVHRabVNnS2Z5UFBOZHhJbEJsUi9sTHpwb0FqZVlDT3dsWXVpUStjTWw3Rjd0dlhvcGJYOHdCWjRZTlVCMy9HcWJZVFV6QUUwdWtPSC9Hd2N1NkhjSzE5NmN1ZitseW5hY3RVR2tmdTdST2FtR1FjS1hkZVUzckh5K1RhSVQiLCJtYWMiOiI5NmQ0MjE2ODZkMmVmMTg5ZTU0MGFlOGY0ZmNlODVhYWU5ZjVkODlmYTc0NTgxZWQ4N2YzMmM5NWIxMDRlMDVmIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InJlY2NYVStHTkNMVHlkUjdWQ2hNT1E9PSIsInZhbHVlIjoiYytLdlJqMHpYZEc0QkJZbDBWU3NETHZtNmQ3WU1hRkR2ODQxcGxkcmZqZWwwQWtySXBvcDVaa3ZWMEdwQnBSUEdJaGFoU2l1ZEQrbzZFcnd1Nys2SE1lVTNJYytQMHlLSlkySTVPVlhWYUdoMEhaNnhnNXc4cG9UMERNci9jbXciLCJtYWMiOiJlNWQ3OWUxMTc0ODA2Mzk3NTM0ZjQ4MTA3M2MxOWNkMzVjM2JmOWQ2ZTFlYTkxNjExZmJkNjQ2ODkyOGYwZWRmIiwidGFnIjoiIn0%3D; TS0168dff9=01ad371bc4136f6f57a8bd44f47217ae55068e3750838c66d2546f16ac99a3c016a1c60c7c5d58fda9e1e296e763546bb23650576ff685dc4b2c68a315ba8c54f2a2298cd0607b70fef5c16cadf4552bae182718b9", // **REPLACE with your actual cookies**
-        "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
-        "Accept: */*",
-        "Accept-Language: en-US,en;q=0.5",
-        "Accept-Encoding: gzip, deflate, br",
-        "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
-        "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
-        "X-Requested-With: XMLHttpRequest",
-        "Content-Length: " . strlen($postString),
-        "Origin: https://e-kinerja.kemenhub.go.id",
-        "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
-        "Sec-Fetch-Dest: empty",
-        "Sec-Fetch-Mode: cors",
-        "Sec-Fetch-Site: same-origin",
-        "Priority: u=0",
-        "Te: trailers",
-        "Connection: keep-alive",
-    ];
-
-    $ch = curl_init($url);
-    curl_setopt_array($ch, [
-        CURLOPT_POST => true,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_POSTFIELDS => $postString,
-        CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-        CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    ]);
-
-    $ch2 = curl_init($url);
-    curl_setopt_array($ch2, [
-        CURLOPT_POST => true,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_POSTFIELDS => $postString2,
-        CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-        CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    ]);
-
-    $ch3 = curl_init($url);
-    curl_setopt_array($ch3, [
-        CURLOPT_POST => true,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_HTTPHEADER => $headers,
-        CURLOPT_POSTFIELDS => $postString3,
-        CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-        CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    ]);
-
-    // $ch4 = curl_init($url);
-    // curl_setopt_array($ch4, [
-    //     CURLOPT_POST => true,
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_HTTPHEADER => $headers,
-    //     CURLOPT_POSTFIELDS => $postString4,
-    //     CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-    //     CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    // ]);
-
-    // $ch5 = curl_init($url);
-    // curl_setopt_array($ch5, [
-    //     CURLOPT_POST => true,
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_HTTPHEADER => $headers,
-    //     CURLOPT_POSTFIELDS => $postString5,
-    //     CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-    //     CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    // ]);
-
-    // $ch6 = curl_init($url);
-    // curl_setopt_array($ch6, [
-    //     CURLOPT_POST => true,
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_HTTPHEADER => $headers,
-    //     CURLOPT_POSTFIELDS => $postString6,
-    //     CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-    //     CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    // ]);
-
-
-    $response = curl_exec($ch);
-    $response2 = curl_exec($ch2);
-    $response3 = curl_exec($ch3);
-    // $response4 = curl_exec($ch4);
-    // $response5 = curl_exec($ch5);
-    // $response6 = curl_exec($ch6);
-
-    if (curl_errno($ch)) {
-        http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => curl_error($ch)]);
-    } else {
-        http_response_code(200);
-        echo json_encode(['status' => 'success', 'message' => $response]);
+        if (curl_errno($ch7)) {
+            http_response_code(400);
+            echo json_encode(['status' => 'error', 'message' => curl_error($ch7)]);
+        } else {
+            http_response_code(200);
+            echo json_encode(['status' => 'success', 'message' => $response7]);
+        }
+    
+        curl_close($ch7);
     }
-
-    curl_close($ch);
+    
 }
