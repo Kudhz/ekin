@@ -10,9 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $bukti = "bukti_dukung";
     $value = $_POST["value"];
     $value2 = $_POST["value2"];
-    $docReal = "1 Document";
-    $perReal = "100 Persen";
-    $bulReal = "1 Bulan";
+    $docReal = "Document";
+    $perReal = "Persen";
+    $bulReal = "Bulan";
 
     $id2 = $id + 2;
     $id3 = $id + 4;
