@@ -22,7 +22,7 @@
 <body>
     <h1 class="d-flex justify-content-center mt-50">JAMET E-KINERJA BOT</h1>
     <form id="form" action="process.php" method="post" onsubmit="return handleSubmit(event)">
-    <div class="container w-50 p-3">
+    <div class="container w-50 p-3 gap-3">
             <strong>Auto Ekinerja:</strong><br>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
