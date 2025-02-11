@@ -22,11 +22,11 @@
 <body>
     <h1 class="d-flex justify-content-center mt-50">JAMET E-KINERJA BOT</h1>
     <form id="form" action="process.php" method="post" onsubmit="return handleSubmit(event)">
-    <div class="container w-50 p-3 gap-3">
+    <div class="container w-50 p-3 gap-30">
             <strong>Auto Ekinerja:</strong><br>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
-            ID:   <input type="text" name="id"  class="form-control mt-50"id="id" placeholder="1234" required><br>
+            ID:   <input type="text" name="id"  class="form-control mt-50" id="id" placeholder="1234" required><br>
             <input type="submit" class="btn btn-primary" value="Send">
         <!-- Key: <input type="text" name="key2" class="form-control" id="key2" required><br> -->
         <!-- Value Realisasi: <textarea name="value" class="form-control" id="value" cols="50" rows="10"></textarea><br> -->
