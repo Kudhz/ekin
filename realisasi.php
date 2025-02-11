@@ -21,7 +21,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <form id="form" action="process.php" method="post" onsubmit="return handleSubmit(event)">
+    <form id="form" action="process2.php" method="post" onsubmit="return handleSubmit(event)">
     <div class="container">
             <strong>Renaksi:</strong><br>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
