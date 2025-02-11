@@ -118,7 +118,7 @@ Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedu
             echo json_encode(['status' => 'error', 'message' => curl_error($ch7)]);
         } else {
             http_response_code(200);
-            echo json_encode(['status' => 'success', 'message' => $response7]);
+            echo json_encode(['status' => 'success', 'message']);
         }
     
         curl_close($ch7);
