@@ -63,8 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $postString = http_build_query($postData);
     // $postString2 = http_build_query($postData2);
     // $postString3 = http_build_query($postData3);
-    // $postString4 = http_build_query($realisasiDoc);
-    // $postString5 = http_build_query($realisasiDoc2);
+    $postString4 = http_build_query($realisasiDoc);
+    $postString5 = http_build_query($realisasiDoc2);
     $postString6 = http_build_query($realisasiDoc3);
 
     $headers = [
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
         "X-Csrf-Token: dm3EMIdYqcxn1t8I7OxkQMWdGHIWhu1V8I74Gt9S", // **Get CSRF token dynamically (see function below)**
         "X-Requested-With: XMLHttpRequest",
-        "Content-Length: " . strlen($postString6),
+        "Content-Length: " . strlen($postString5),
         "Origin: https://e-kinerja.kemenhub.go.id",
         "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
         "Sec-Fetch-Dest: empty",
@@ -118,25 +118,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //     CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
     // ]);
 
-    // $ch4 = curl_init($url);
-    // curl_setopt_array($ch4, [
-    //     CURLOPT_POST => true,
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_HTTPHEADER => $headers,
-    //     CURLOPT_POSTFIELDS => $postString4,
-    //     CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-    //     CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    // ]);
+    $ch4 = curl_init($url);
+    curl_setopt_array($ch4, [
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => $headers,
+        CURLOPT_POSTFIELDS => $postString4,
+        CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
+        CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
+    ]);
 
-    // $ch5 = curl_init($url);
-    // curl_setopt_array($ch5, [
-    //     CURLOPT_POST => true,
-    //     CURLOPT_RETURNTRANSFER => true,
-    //     CURLOPT_HTTPHEADER => $headers,
-    //     CURLOPT_POSTFIELDS => $postString5,
-    //     CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-    //     CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-    // ]);
+    $ch5 = curl_init($url);
+    curl_setopt_array($ch5, [
+        CURLOPT_POST => true,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => $headers,
+        CURLOPT_POSTFIELDS => $postString5,
+        CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
+        CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
+    ]);
 
     $ch6 = curl_init($url);
     curl_setopt_array($ch6, [
@@ -152,8 +152,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // $response = curl_exec($ch);
     // $response2 = curl_exec($ch2);
     // $response3 = curl_exec($ch3);
-    // $response4 = curl_exec($ch4);
-    // $response5 = curl_exec($ch5);
+    $response4 = curl_exec($ch4);
+    $response5 = curl_exec($ch5);
     $response6 = curl_exec($ch6);
 
     if (curl_errno($ch6)) {
@@ -165,5 +165,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     curl_close($ch6);
-    // curl_close($ch5);
+    curl_close($ch5);
+    curl_close($ch4);
 }
