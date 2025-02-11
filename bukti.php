@@ -1,13 +1,3 @@
-<?php
-// Mulai session
-session_start();
-
-// Jika form telah disubmit, simpan id ke session
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $_SESSION['id'] = $_POST['id'];
-}
-?>
-
 <!DOCTYPE html>
 <html>
 <>
@@ -36,7 +26,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <strong>Renaksi:</strong>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
-            ID: <input type="text" name="id"  class="form-control"id="id" required><br>
+            ID: <input type="text" name="id" class="form-control" id="id" 
+            value="<?php echo isset($_POST['submit']) && isset($_POST['id']) ? $_POST['id'] : ''; ?>" required><br>
         <!-- Key: <input type="text" name="key2" class="form-control" id="key2" required><br> -->
         <!-- Value Realisasi: <textarea name="value" class="form-control" id="value" cols="50" rows="10"></textarea><br> -->
         Value: <textarea name="value2" class="form-control" id="value2" cols="50" rows="10">
