@@ -20,13 +20,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <h1 class="d-flex justify-content-center mt-10">JAMET E-KINERJA BOT</h1>
+    <h1 class="d-flex justify-content-center mt-50">JAMET E-KINERJA BOT</h1>
     <form id="form" action="process.php" method="post" onsubmit="return handleSubmit(event)">
     <div class="container w-50 p-3">
             <strong>Auto Ekinerja:</strong><br>
             <div class="alert alert-success message" id="success-message">Data submitted successfully!</div>
             <div class="malert alert-danger message" id="error-message"></div>
-            ID:   <input type="text" name="id"  class="form-control"id="id" placeholder="1234" required><br>
+            ID:   <input type="text" name="id"  class="form-control mt-50"id="id" placeholder="1234" required><br>
             <input type="submit" class="btn btn-primary" value="Send">
         <!-- Key: <input type="text" name="key2" class="form-control" id="key2" required><br> -->
         <!-- Value Realisasi: <textarea name="value" class="form-control" id="value" cols="50" rows="10"></textarea><br> -->
