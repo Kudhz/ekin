@@ -54,28 +54,24 @@ Menyampaikan Laporan Dokumen Laporan kegiatan performance check peralatan listri
                     body: new URLSearchParams(plainFormData),
                 });
 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const data = await response.json();
-
-                if (data.status === 'success') {
-                    document.getElementById('success-message').style.display = 'block';
-                    document.getElementById('error-message').style.display = 'none';
-                    document.getElementById('form').reset(); // Reset form
-                } else {
-                    document.getElementById('success-message').style.display = 'none';
-                    document.getElementById('error-message').style.display = 'block';
-                    document.getElementById('error-message').textContent = data.message || 'Failed to submit data';
-                }
+                if (response.ok) {
+            // Status code 200-299 (sukses)
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+            document.getElementById('form').reset();
+            } else {
+                // Status code selain 200-299 (gagal)
+                document.getElementById('success-message').style.display = 'none';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('error-message').textContent = `Gagal dengan status code: ${response.status}`;
+            }
             } catch (error) {
                 document.getElementById('success-message').style.display = 'none';
                 document.getElementById('error-message').style.display = 'block';
-                document.getElementById('error-message').textContent = error.message;
+                document.getElementById('error-message').textContent = `Terjadi kesalahan: ${error.message}`;
             }
 
-            return false; // Mencegah submit default
+    return false;
         }
     </script>
 </body>
