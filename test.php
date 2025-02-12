@@ -65,7 +65,7 @@
                         <div class="card" style="z-index:10;">
         <div class="card-body p-4"> 
             <div class="text-center mt-2 mb-2">
-                <img src="https://e-kinerja.kemenhub.go.id/assets/images/logo-light.png" alt="" height="60">
+                <img src="https://e-kinerja.kemenhub.go.id/assets/images/logo-dark.png" alt="" height="60">
             </div>
 
             
