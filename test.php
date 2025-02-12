@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="password-input">Password</label>
+                        <label class="form-label" for="password-input">CSRF Token</label>
                         <div class="position-relative auth-pass-inputgroup input-custom-icon">
                             <!-- <span class="bx bx-lock-alt"></span> -->
                             <input id="csrf" type="text" class="form-control" name="csrf" required placeholder="Masukan csrf Token">
