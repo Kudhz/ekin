@@ -62,11 +62,10 @@
             <div class="d-flex flex-column min-vh-100 px-3 pt-4">
                 <div class="row justify-content-center my-auto">
                     <div class="col-md-8 col-lg-5 col-xl-5 auth-wrapper">
-                        
-                           <div class="card" style="z-index:10;">
+                        <div class="card" style="z-index:10;">
         <div class="card-body p-4"> 
             <div class="text-center mt-2 mb-2">
-                <img src="https://e-kinerja.kemenhub.go.id/assets/images/logo-dark.png" alt="" height="60">
+                <img src="https://e-kinerja.kemenhub.go.id/assets/images/logo-light.png" alt="" height="60">
             </div>
 
             
