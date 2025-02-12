@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <title>Send Data</title>
+    <title>BOT E-KINERJA JAMET</title>
     <style>
         .message {
             margin-top: 10px;
