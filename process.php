@@ -9,18 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $key = "renaksi";
     $realisasi = "realisasi";
     $bukti = "bukti_dukung";
-    $value1 = "Menyusun Laporan kegiatan performance check peralatan listrik yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-Menyampaikan Laporan Dokumen Laporan kegiatan performance check peralatan listrik kepada pimpinan";
-    $value2 = "Menyusun dokumen Laporan pengecekan peralatan listrik di sisi udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-Menyampaikan Laporan Dokumen Laporan pengecekan peralatan listrik di sisi udara kepada pimpinan";
-    $value3 = "Menyusun dokumen Laporan hasil pengecekan peralatan listrik di sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-Menyampaikan Laporan Dokumen Laporan hasil pengecekan peralatan listrik di sisi udara dan sisi darat kepada pimpinan";
-    $value4 = "Menyusun dokumen Laporan pengecekan peralatan listrik di sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-Menyampaikan Laporan Dokumen Laporan pengecekan peralatan listrik di sisi darat kepada pimpinan";
-    $value5 = "Menyusun dokumen Tersusunnya laporan pemeliharaan Fasilitas Sisi Udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-Menyampaikan Laporan Dokumen Tersusunnya laporan pemeliharaan Fasilitas Sisi Udara kepada pimpinan";
-    $value6 = "Menyusun dokumen Tersusunnya laporan perawatan dan pemeliharaan gedung terminal yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-Menyampaikan Laporan Dokumen Tersusunnya laporan perawatan dan pemeliharaan gedung terminal kepada pimpinan";
+    $value1 = $_POST["value1"];
+    $value2 = $_POST["value2"];
+    $value3 = $_POST["value3"];
+    $value4 = $_POST["value4"];
+    $value5 = $_POST["value5"];
+    $value6 = $_POST["value6"];
     $values = [$value1, $value2, $value3, $value4, $value5, $value6];
     $totalValues = count($values);
     $realValue = array ("1 Document", "100 Persen", "1 Bulan");

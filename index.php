@@ -92,10 +92,52 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="password-input">CSRF Token</label>
+                        <label class="form-label" for="password-input">CSRF</label>
                         <div class="position-relative auth-pass-inputgroup input-custom-icon">
                             <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="csrf" type="text" class="form-control" name="csrf" required placeholder="Masukan csrf Token">
+                            <input id="csrf" type="text" class="form-control" name="csrf" required placeholder="Masukan Renaksi Value 1">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label" for="password-input">Renaksi Value 1</label>
+                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                            <!-- <span class="bx bx-lock-alt"></span> -->
+                            <input id="value1" type="text" class="form-control" name="value1" required placeholder="Masukan Renaksi Value 1">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label" for="password-input">Renaksi Value 2</label>
+                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                            <!-- <span class="bx bx-lock-alt"></span> -->
+                            <input id="value2" type="text" class="form-control" name="value2" required placeholder="Masukan Renaksi Value 1">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label" for="password-input">Renaksi Value 3</label>
+                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                            <!-- <span class="bx bx-lock-alt"></span> -->
+                            <input id="value3" type="text" class="form-control" name="value3" required placeholder="Masukan Renaksi Value 1">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label" for="password-input">Renaksi Value 4</label>
+                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                            <!-- <span class="bx bx-lock-alt"></span> -->
+                            <input id="value4" type="text" class="form-control" name="value4" required placeholder="Masukan Renaksi Value 1">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label" for="password-input">Renaksi Value 5</label>
+                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                            <!-- <span class="bx bx-lock-alt"></span> -->
+                            <input id="value5" type="text" class="form-control" name="value5" required placeholder="Masukan Renaksi Value 1">
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                        <label class="form-label" for="password-input">Renaksi Value 6</label>
+                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
+                            <!-- <span class="bx bx-lock-alt"></span> -->
+                            <input id="value6" type="text" class="form-control" name="value6" required placeholder="Masukan Renaksi Value 1">
                         </div>
                         </div>
                     
