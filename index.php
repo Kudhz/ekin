@@ -137,7 +137,8 @@
                         <label class="form-label" for="password-input">Renaksi Value 6</label>
                         <div class="position-relative auth-pass-inputgroup input-custom-icon">
                             <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value6" type="text" class="form-control" name="value6" required placeholder="Masukan Renaksi Value 1">
+                            <input id="value6" type="text" class="form-control" name="value6" required placeholder="Masukan Renaksi Value 1">Menyusun Laporan kegiatan Pengaturan Distribusi aliran listrik di lingkungan bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+                            Menyampaikan Laporan Dokumen Laporan kegiatan pengaturan distribusi aliran listrik di lingkungan bandar udara kepada pimpinan</input>
                         </div>
                         </div>
                     
