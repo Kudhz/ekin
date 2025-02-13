@@ -9,12 +9,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $key = "renaksi";
     $realisasi = "realisasi";
     $bukti = "bukti_dukung";
-    $value1 = $_POST["value1"];
-    $value2 = $_POST["value2"];
-    $value3 = $_POST["value3"];
-    $value4 = $_POST["value4"];
-    $value5 = $_POST["value5"];
-    $value6 = $_POST["value6"];
+    $value1 = "Menyusun Laporan kegiatan Pengaturan Distribusi aliran listrik di lingkungan bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan kegiatan pengaturan distribusi aliran listrik di lingkungan bandar udara kepada pimpinan";
+    $value2 = "Menyusun Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara kepada pimpinan";
+    $value3 = "Menyusun Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan kegiatanpengecekan peralatan listrik di sisi udara dan sisi darat kepada pimpinan";
+    $value4 = "Menyusun Laporan kegiatan Ppengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat kepada pimpinan";
+    $value5 = "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat kepada pimpinan";
+    $value6 = "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
+Menyampaikan Laporan Dokumen Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara kepada pimpinan";
     $values = [$value1, $value2, $value3, $value4, $value5, $value6];
     $totalValues = count($values);
     $realValue = array ("1 Document", "100 Persen", "1 Bulan");

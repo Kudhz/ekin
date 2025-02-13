@@ -57,7 +57,7 @@
 </head>
 <body>
   <div class="authentication-bg min-vh-100">
-        <div class="bg-overlay bg-dark">
+        <div class="bg-overlay bg-dark"></div>
         <div class="container">
             <div class="d-flex flex-column min-vh-100 px-3 pt-4">
                 <div class="row justify-content-center my-auto">
@@ -92,53 +92,10 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="password-input">CSRF</label>
+                        <label class="form-label" for="password-input">CSRF Token</label>
                         <div class="position-relative auth-pass-inputgroup input-custom-icon">
                             <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="csrf" type="text" class="form-control" name="csrf" required placeholder="Masukan Renaksi Value 1">
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                        <label class="form-label" for="password-input">Renaksi Value 1</label>
-                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
-                            <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value1" type="text" class="form-control" name="value1" required placeholder="Masukan Renaksi Value 1">
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                        <label class="form-label" for="password-input">Renaksi Value 2</label>
-                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
-                            <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value2" type="text" class="form-control" name="value2" required placeholder="Masukan Renaksi Value 1">
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                        <label class="form-label" for="password-input">Renaksi Value 3</label>
-                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
-                            <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value3" type="text" class="form-control" name="value3" required placeholder="Masukan Renaksi Value 1">
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                        <label class="form-label" for="password-input">Renaksi Value 4</label>
-                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
-                            <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value4" type="text" class="form-control" name="value4" required placeholder="Masukan Renaksi Value 1">
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                        <label class="form-label" for="password-input">Renaksi Value 5</label>
-                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
-                            <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value5" type="text" class="form-control" name="value5" required placeholder="Masukan Renaksi Value 1">
-                        </div>
-                        </div>
-                        <div class="mb-3">
-                        <label class="form-label" for="password-input">Renaksi Value 6</label>
-                        <div class="position-relative auth-pass-inputgroup input-custom-icon">
-                            <!-- <span class="bx bx-lock-alt"></span> -->
-                            <input id="value6" type="text" class="form-control" name="value6" required placeholder="Masukan Renaksi Value 1">Menyusun Laporan kegiatan Pengaturan Distribusi aliran listrik di lingkungan bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja
-                            Menyampaikan Laporan Dokumen Laporan kegiatan pengaturan distribusi aliran listrik di lingkungan bandar udara kepada pimpinan</input>
+                            <input id="csrf" type="text" class="form-control" name="csrf" required placeholder="Masukan csrf Token">
                         </div>
                         </div>
                     
@@ -162,7 +119,6 @@
 
             </div>
         </div><!-- end container -->
-        </div>
     </div>
 
     <script>
