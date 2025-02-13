@@ -57,7 +57,7 @@
 </head>
 <body>
   <div class="authentication-bg min-vh-100">
-        <div class="bg-overlay bg-dark">
+        <div class="bg-overlay bg-dark"></div>
         <div class="container">
             <div class="d-flex flex-column min-vh-100 px-3 pt-4">
                 <div class="row justify-content-center my-auto">
@@ -119,7 +119,6 @@
 
             </div>
         </div><!-- end container -->
-    </div>
     </div>
 
     <script>
