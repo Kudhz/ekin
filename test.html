@@ -189,16 +189,17 @@
             // Data untuk renaksi
             const renaksi = {
               id: currentId,
-              key: key, // Sesuaikan variabel key
+              key: key, // Sesuaikan variabel "key"
               value: values[Math.floor(i / 3) % totalValues], // Sesuaikan variabel values
             };
 
             // Data untuk realisasi
             const realisasi2 = {
               id: currentId,
-              key: realisasi, // Sesuaikan variabel realisasi
-              value: realValue[realIndex % 3], // Sesuaikan variabel realValue
+              key: realisasi,
+              value: realValue[realIndex % 3],
             };
+            console.log(realisasi2);
 
             // Data untuk bukti dukung
             const buktiDukung = {
