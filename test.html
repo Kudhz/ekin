@@ -156,6 +156,7 @@
           const csrf = document.getElementById("csrf").value;
           const cookie = document.getElementById("cookie"); // Atau ambil cookie yang diperlukan
 
+          let renaksi = "renaksi";
           let realisasi = "realisasi";
           let bukti = "bukti_dukung";
 
@@ -189,7 +190,7 @@
             // Data untuk renaksi
             const renaksi = {
               id: currentId,
-              key: key, // Sesuaikan variabel "key"
+              key: renaksi, // Sesuaikan variabel "key"
               value: values[Math.floor(i / 3) % totalValues], // Sesuaikan variabel values
             };
 
