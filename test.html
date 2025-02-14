@@ -240,18 +240,21 @@
             // Membuat dan mengirim request
             const responses = await Promise.all([
               fetch(url, {
+                mode: "no-cors",
                 method: "POST",
                 headers: headers,
                 body: payloadRenaksi,
                 credentials: "include",
               }),
               fetch(url, {
+                mode: "no-cors",
                 method: "POST",
                 headers: headers,
                 body: payloadRealisasi,
                 credentials: "include",
               }),
               fetch(url, {
+                mode: "no-cors",
                 method: "POST",
                 headers: headers,
                 body: payloadBukti,
