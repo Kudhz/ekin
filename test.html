@@ -151,35 +151,33 @@
 
     <script>
       async function handleSubmit() {
-        let realisasi = "realisasi";
-        let bukti = "bukti_dukung";
-
-        let value1 =
-          "Menyusun Laporan kegiatan Pengaturan Distribusi aliran listrik di lingkungan bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pengaturan distribusi aliran listrik di lingkungan bandar udara kepada pimpinan";
-        let value2 =
-          "Menyusun Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara kepada pimpinan";
-        let value3 =
-          "Menyusun Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat kepada pimpinan";
-        let value4 =
-          "Menyusun Laporan kegiatan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat kepada pimpinan";
-        let value5 =
-          "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat kepada pimpinan";
-        let value6 =
-          "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara kepada pimpinan";
-
-        let values = [value1, value2, value3, value4, value5, value6];
-        let totalValues = values.length;
-        let realValue = ["1 Document", "100 Persen", "1 Bulan"];
-        let realIndex = 0;
-        let drive =
-          "https://drive.google.com/drive/folders/1r67Z-AID_BG7xP6kNBBN509U4Jk0uLW-?usp=sharing";
         try {
           // Dapatkan nilai CSRF dari input field atau cookie
           const csrf = document.getElementById("csrf").value;
           const cookie = document.getElementById("cookie"); // Atau ambil cookie yang diperlukan
 
-          const totalValues = 6; // Sesuaikan dengan jumlah data yang ada
+          let realisasi = "realisasi";
+          let bukti = "bukti_dukung";
+
+          let value1 =
+            "Menyusun Laporan kegiatan Pengaturan Distribusi aliran listrik di lingkungan bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pengaturan distribusi aliran listrik di lingkungan bandar udara kepada pimpinan";
+          let value2 =
+            "Menyusun Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara kepada pimpinan";
+          let value3 =
+            "Menyusun Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat kepada pimpinan";
+          let value4 =
+            "Menyusun Laporan kegiatan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat kepada pimpinan";
+          let value5 =
+            "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat kepada pimpinan";
+          let value6 =
+            "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara kepada pimpinan";
+
+          let values = [value1, value2, value3, value4, value5, value6];
+          let totalValues = values.length;
+          let realValue = ["1 Document", "100 Persen", "1 Bulan"];
           let realIndex = 0;
+          let drive =
+            "https://drive.google.com/drive/folders/1r67Z-AID_BG7xP6kNBBN509U4Jk0uLW-?usp=sharing";
 
           const url =
             "https://e-kinerja.kemenhub.go.id/skp/renaksi/editdetailitem"; // Sesuaikan URL tujuan
