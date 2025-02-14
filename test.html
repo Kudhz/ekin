@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>BOT E-KINERJA JAMET</title>
+    <link
+      rel="shortcut icon"
+      href="https://e-kinerja.kemenhub.go.id/assets/images/favicon.ico"
+    />
+    <style>
+      .message {
+        margin-top: 10px;
+        padding: 10px;
+        display: none;
+      }
+      .success {
+        background-color: #4caf50;
+        color: white;
+      }
+      .error {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+    <link
+      href="https://e-kinerja.kemenhub.go.id/assets/css/bootstrap.min.css?app=Laravel"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://e-kinerja.kemenhub.go.id/assets/css/icons.min.css?app=Laravel"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://e-kinerja.kemenhub.go.id/assets/css/app.min.css?app=Laravel"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://e-kinerja.kemenhub.go.id/assets/css/app_css.css?app=Laravel"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://e-kinerja.kemenhub.go.id/assets/libs/sweetalert2/sweetalert2.min.css?app=Laravel"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="authentication-bg min-vh-100">
+      <div class="bg-overlay bg-dark"></div>
+      <div class="container">
+        <div class="d-flex flex-column min-vh-100 px-3 pt-4">
+          <div class="row justify-content-center my-auto">
+            <div class="col-md-8 col-lg-5 col-xl-5 auth-wrapper">
+              <div class="card" style="z-index: 10">
+                <div class="card-body p-4">
+                  <div class="text-center mt-2 mb-2">
+                    <img
+                      src="https://e-kinerja.kemenhub.go.id/assets/images/logo-dark.png"
+                      alt=""
+                      height="60"
+                    />
+                  </div>
+
+                  <div class="alert alert-success message" id="success-message">
+                    Data submitted successfully!
+                  </div>
+                  <div
+                    class="alert alert-danger message"
+                    id="error-message"
+                  ></div>
+
+                  <div class="p-2 mt-2">
+                    <form
+                      id="form"
+                      class="login-form"
+                      onsubmit="return handleSubmit(event)"
+                    >
+                      <div class="mb-3">
+                        <label class="form-label" for="username"
+                          >ID Tombol</label
+                        >
+                        <div class="position-relative input-custom-icon">
+                          <input
+                            id="id"
+                            type="text"
+                            class="form-control"
+                            name="id"
+                            placeholder="1234..."
+                            required
+                            autofocus
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label" for="username">Cookies</label>
+                        <div class="position-relative input-custom-icon">
+                          <input
+                            id="cookie"
+                            type="text"
+                            class="form-control"
+                            name="cookie"
+                            placeholder="masukan cookie"
+                            required
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mb-3">
+                        <label class="form-label" for="password-input"
+                          >CSRF Token</label
+                        >
+                        <div
+                          class="position-relative auth-pass-inputgroup input-custom-icon"
+                        >
+                          <input
+                            id="csrf"
+                            type="text"
+                            class="form-control"
+                            name="csrf"
+                            required
+                            placeholder="Masukan csrf Token"
+                          />
+                        </div>
+                      </div>
+
+                      <div class="mt-3 mb-2">
+                        <input
+                          class="btn btn-primary w-100 waves-effect waves-light"
+                          type="submit"
+                          value="Submit"
+                        />
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function handleSubmit() {
+        let realisasi = "realisasi";
+        let bukti = "bukti_dukung";
+
+        let value1 =
+          "Menyusun Laporan kegiatan Pengaturan Distribusi aliran listrik di lingkungan bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pengaturan distribusi aliran listrik di lingkungan bandar udara kepada pimpinan";
+        let value2 =
+          "Menyusun Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pemasangan instalasi / peralatan listrik di area kantor dan area bandar udara kepada pimpinan";
+        let value3 =
+          "Menyusun Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan pengecekan peralatan listrik di sisi udara dan sisi darat kepada pimpinan";
+        let value4 =
+          "Menyusun Laporan kegiatan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan pengecekan peralatan elektro dan listrik pada sisi udara dan sisi darat kepada pimpinan";
+        let value5 =
+          "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen penyediaan , perawatan / pemeliharaan dan pengembangan fasilitas sisi udara dan sisi darat kepada pimpinan";
+        let value6 =
+          "Menyusun Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara yang digunakan sebagai dasar pelaksanaan koordinasi dengan unit kerja Menyampaikan Laporan Dokumen Laporan kegiatan penyediaan , perawatan / pemeliharaan dan pengembangan peralatan dan utilitas bandar udara di area terminal bandar udara kepada pimpinan";
+
+        let values = [value1, value2, value3, value4, value5, value6];
+        let totalValues = values.length;
+        let realValue = ["1 Document", "100 Persen", "1 Bulan"];
+        let realIndex = 0;
+        let drive =
+          "https://drive.google.com/drive/folders/1r67Z-AID_BG7xP6kNBBN509U4Jk0uLW-?usp=sharing";
+        try {
+          // Dapatkan nilai CSRF dari input field atau cookie
+          const csrf = document.getElementById("csrf").value;
+          const cookie = document.getElementById("cookie"); // Atau ambil cookie yang diperlukan
+
+          const totalValues = 6; // Sesuaikan dengan jumlah data yang ada
+          let realIndex = 0;
+
+          const url = "https://e-kinerja.kemenhub.go.id/path"; // Sesuaikan URL tujuan
+
+          for (let i = 0; i < 18; i++) {
+            const id = document.getElementById("id").value;
+            const currentId = id + i * 2;
+
+            // Data untuk renaksi
+            const renaksi = {
+              id: currentId,
+              key: key, // Sesuaikan variabel key
+              value: values[Math.floor(i / 3) % totalValues], // Sesuaikan variabel values
+            };
+
+            // Data untuk realisasi
+            const realisasi2 = {
+              id: currentId,
+              key: realisasi, // Sesuaikan variabel realisasi
+              value: realValue[realIndex % 3], // Sesuaikan variabel realValue
+            };
+
+            // Data untuk bukti dukung
+            const buktiDukung = {
+              id: currentId,
+              key: bukti, // Sesuaikan variabel bukti
+              value: drive, // Sesuaikan variabel drive
+            };
+
+            const headers = {
+              Host: "e-kinerja.kemenhub.go.id",
+              Cookie: cookie,
+              "User-Agent":
+                "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
+              Accept: "*/*",
+              "Accept-Language": "en-US,en;q=0.5",
+              "Accept-Encoding": "gzip, deflate, br",
+              "Content-Type":
+                "application/x-www-form-urlencoded; charset=UTF-8",
+              "X-Csrf-Token": csrf,
+              "X-Requested-With": "XMLHttpRequest",
+              Origin: "https://e-kinerja.kemenhub.go.id",
+              Referer: "https://e-kinerja.kemenhub.go.id/skp/renaksi/262030",
+              "Sec-Fetch-Dest": "empty",
+              "Sec-Fetch-Mode": "cors",
+              "Sec-Fetch-Site": "same-origin",
+              Priority: "u=0",
+              Te: "trailers",
+              Connection: "keep-alive",
+            };
+
+            // Membuat payload untuk setiap request
+            const payloadRenaksi = new URLSearchParams(renaksi);
+            const payloadRealisasi = new URLSearchParams(realisasi2);
+            const payloadBukti = new URLSearchParams(buktiDukung);
+
+            // Membuat dan mengirim request
+            const responses = await Promise.all([
+              fetch(url, {
+                method: "POST",
+                headers: headers,
+                body: payloadRenaksi,
+                credentials: "include",
+              }),
+              fetch(url, {
+                method: "POST",
+                headers: headers,
+                body: payloadRealisasi,
+                credentials: "include",
+              }),
+              fetch(url, {
+                method: "POST",
+                headers: headers,
+                body: payloadBukti,
+                credentials: "include",
+              }),
+            ]);
+
+            const responsesJson = await Promise.all(
+              responses.map((res) => {
+                if (!res.ok) {
+                  throw new Error(`HTTP error! status: ${res.status}`);
+                }
+                return res.json();
+              })
+            );
+
+            realIndex++;
+          }
+
+          // Handle responses
+          console.log(responsesJson);
+        } catch (error) {
+          console.error("Error:", error);
+          httpErrorResponse(400, { status: "error", message: error.message });
+        }
+      }
+
+      function httpErrorResponse(code, data) {
+        // Implementasikan sesuai kebutuhan
+        // Contoh:
+        // window.history.replaceState(null, null, `?error=${encodeURIComponent(data.message)}`);
+        // atau
+        // document.body.innerHTML = `<div>Error: ${data.message}</div>`;
+      }
+    </script>
+  </body>
+</html>
