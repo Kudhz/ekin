@@ -224,8 +224,8 @@ echo "response1 : $response1 \n";
                         
             <div class="p-2 mt-2">
             <form id="form" class="login-form" action="loginAPI.php" method="post" onsubmit="return handleSubmit(event)">
-                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">  <input type="hidden" name="act" value="login"> 
-                    <input type="hidden" id="cookie1" name="cookie1"  value="<?php echo $cookieString; ?>">                  
+                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token1; ?>">  <input type="hidden" name="act" value="login"> 
+                    <input type="hidden" id="cookie1" name="cookie1"  value="<?php echo $cookieString1; ?>">                  
 
                     <div class="mb-3">
                         <label class="form-label" for="username">Username</label>
@@ -257,7 +257,7 @@ echo "response1 : $response1 \n";
                                 <div class="form-group text-right">
                                     <div class="input-group div-img-captcha mt-2">
                                         <span>
-                                            <img src="<?php echo $captchaSrc1 ?>">
+                                            <img src="<?php echo $captchaSrc ?>">
                                         </span>
                                         <a href="javascript:void(0);" class="refreshCaptcha text-danger ml-2 mt-1">
                                             <i class="fa fa-refresh"></i> Reload Captcha</a>
