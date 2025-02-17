@@ -55,11 +55,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (curl_errno($ch7)) {
         http_response_code(400);
-        echo json_encode(['status' => 'error', 'message' => curl_error($ch7)]);
+        echo json_encode(['status' => 'error', 'message' => curl_error($ch7)], JSON_PRETTY_PRINT);
     } else {
-        http_response_code(200);
-        echo json_encode(['status' => 'success', 'message']);
+        http_response_code($httpCode);
+        echo "HTTP Code: $httpCode\n";
+        echo "Header:\n";
+        echo $header;
+        echo "\nBody:\n";
+        echo $body;
+        // Jika response dalam bentuk JSON
+        if (json_decode($body, true)) {
+            echo "\nResponse dalam bentuk JSON:\n";
+            echo json_encode(json_decode($body, true), JSON_PRETTY_PRINT);
+        }
     }
+
 
     curl_close($ch7);
 
