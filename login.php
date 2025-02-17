@@ -183,7 +183,7 @@ echo "CAPTCHA Source: $captchaSrc \n";
                                 <div class="form-group text-right">
                                     <div class="input-group div-img-captcha mt-2">
                                         <span>
-                                            <img src="<?php echo $captchaSrc ?>" >
+                                            <img src="<?php echo $captchaSrc ?>">
                                         </span>
                                         <a href="javascript:void(0);" class="refreshCaptcha text-danger ml-2 mt-1">
                                             <i class="fa fa-refresh"></i> Reload Captcha</a>
@@ -192,7 +192,7 @@ echo "CAPTCHA Source: $captchaSrc \n";
                             </div>
                             <div class="col-md-6 col-sm-6 col-xs-12 pt-2 pb-0 mt-0 mb-0">
                                 <span class="form-text text-left">
-                                    <input type="text" class="form-control  auth-input-rounded v_captcha" name="v_captcha" id="v_captcha" placeholder="Captcha" required autocomplete="off">
+                                    <input type="text" class="form-control auth-input-rounded v_captcha" name="v_captcha" id="v_captcha" placeholder="Captcha" required autocomplete="off">
                                 </span>
                             </div>
                         </div>
