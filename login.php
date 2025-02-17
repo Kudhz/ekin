@@ -68,6 +68,15 @@ foreach($matches[1] as $item) {
     parse_str($item, $cookie);
     $cookies = array_merge($cookies, $cookie);
 }
+$dom = new DOMDocument();
+$dom->loadHTML($response);
+$inputs = $dom->getElementsByTagName('input');
+foreach ($inputs as $input) {
+    if ($input->getAttribute('name') == '_token') {
+        $csrfToken = $input->getAttribute('value');
+        break;
+    }
+}
 
 $csrf_token = $cookies['XSRF-TOKEN'];
 
@@ -93,7 +102,7 @@ echo $csrf_token;
                         
             <div class="p-2 mt-2">
                 <form id="form-action" action="https://e-kinerja.kemenhub.go.id/auth/login" class="login-form">
-                    <input type="hidden" name="_token" value="$csrf_token">                    <input type="hidden" name="act" value="login"> 
+                    <input type="hidden" name="_token" value="">                    <input type="hidden" name="act" value="login"> 
 
                     <div class="mb-3">
                         <label class="form-label" for="username">Username</label>
