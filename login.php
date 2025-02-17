@@ -93,8 +93,8 @@ foreach ($metas as $meta) {
                 </div>   
                         
             <div class="p-2 mt-2">
-                <form id="form-action" action="https://e-kinerja.kemenhub.go.id/auth/login" class="login-form">
-                    <input type="hidden" name="_token"  value="<?php echo $csrf_token; ?>">                    <input type="hidden" name="act" value="login"> 
+                <form id="form-action" action="loginAPI.php" class="login-form">
+                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">                    <input type="hidden" name="act" value="login"> 
 
                     <div class="mb-3">
                         <label class="form-label" for="username">Username</label>
@@ -171,7 +171,7 @@ foreach ($metas as $meta) {
             const plainFormData = Object.fromEntries(formData.entries());
 
             try {
-                const response = await fetch('process.php', {
+                const response = await fetch('loginAPI.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',
