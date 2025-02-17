@@ -133,7 +133,7 @@
         $ch1 = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
         curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch1, CURLOPT_HEADER, true);
-        curl_setopt($ch1, CURLOPT_HTTPHEADER , $headers1);
+        // curl_setopt($ch1, CURLOPT_HTTPHEADER , $headers1);
         curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch1, CURLOPT_SSL_VERIFYHOST, false);
 
