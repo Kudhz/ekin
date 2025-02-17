@@ -56,76 +56,62 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<?php
+    <?php
+        $ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_NOBODY, false);
+        $response = curl_exec($ch);
+        curl_close($ch);
 
-// Initialize cURL
-$ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, true);
-curl_setopt($ch, CURLOPT_NOBODY, false); // Ensure we get the full response
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL verification if necessary
-
-$response = curl_exec($ch);
-curl_close($ch);
-
-// Parse headers to extract cookies
-$headers = explode("\n", $response);
-$cookies = array();
-
-foreach ($headers as $header) {
-    if (strpos($header, 'Set-Cookie:') !== false) {
-        $cookie = trim(substr($header, strpos($header, ':') + 1));
-        $cookie_parts = explode(';', $cookie);
-        $cookie_name_value = explode('=', $cookie_parts[0]);
-        $cookies[$cookie_name_value[0]] = $cookie_name_value[1];
-    }
-}
-
-// Load HTML content
-$dom = new DOMDocument();
-$dom->loadHTML($response);
-
-// Extract CAPTCHA source
-$divCaptcha = $dom->getElementsByTagName('div');
-$captchaSrc = '';
-
-foreach ($divCaptcha as $div) {
-    if ($div->getAttribute('class') === 'div-img-captcha') {
-        $imgs = $div->getElementsByTagName('img');
-        foreach ($imgs as $img) {
-            $captchaSrc = $img->getAttribute('src');
-            break; // Exit loop once CAPTCHA source is found
+        $headers = explode("\n", $response);
+        $cookies = array();
+        foreach ($headers as $header) {
+            if (strpos($header, 'Set-Cookie:') !== false) {
+                $cookie = trim(substr($header, strpos($header, ':') + 1));
+                $cookie_parts = explode(';', $cookie);
+                $cookie_name_value = explode('=', $cookie_parts[0]);
+                $cookies[$cookie_name_value[0]] = $cookie_name_value[1];
+            }
         }
-    }
-}
 
-// Extract CSRF token
-$csrf_token = '';
-$metas = $dom->getElementsByTagName('meta');
+        $dom = new DOMDocument();
+        @$dom->loadHTML(substr($response, strpos($response, '<html>')));
+        $metas = $dom->getElementsByTagName('meta');
+        $divCaptcha = $dom->getElementsByTagName('div');
 
-foreach ($metas as $meta) {
-    if ($meta->getAttribute('name') == 'csrf-token') {
-        $csrf_token = $meta->getAttribute('content');
-        break;
-    }
-}
+        foreach ($divCaptcha as $div) {
+            if ($div->getAttribute('class') === 'div-img-captcha') {
+                // Dapatkan tag <img> di dalam div tersebut
+                $imgs = $div->getElementsByTagName('img');
+                foreach ($imgs as $img) {
+                    $captchaSrc = $img->getAttribute('src');
+                    
+                }
+            }
+        }
 
-// Construct cookie string
-$cookieString = '';
-if (!empty($cookies)) {
-    foreach ($cookies as $name => $value) {
-        $cookieString .= "{$name}={$value}; ";
-    }
-    $cookieString = rtrim($cookieString, '; ');
-}
+        $csrf_token = '';
+        foreach ($metas as $meta) {
+            if ($meta->getAttribute('name') == 'csrf-token') {
+                $csrf_token = $meta->getAttribute('content');
+                break;
+            }
+        }
 
-// Output results
-echo "CAPTCHA Source: {$captchaSrc}\n";
-echo "Cookie String: {$cookieString}\n";
-echo "CSRF Token: {$csrf_token}\n";
+// echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
+// echo "laravel_session: " . $cookies['laravel_session'] . "\n";
+// echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
+// echo "CSRF Token: $csrf_token\n";
 
+$xsrfToken = $cookies['XSRF-TOKEN'];
+$laravelSession = $cookies['laravel_session'];
+$ts0168dff9 = $cookies['TS0168dff9'];
+$ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
+$cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
+echo "CAPTCHA Source: $captchaSrc\n";
+echo $cookieString
 ?>
-
 
 <div class="authentication-bg min-vh-100">
         <div class="bg-overlay bg-light"></div>
