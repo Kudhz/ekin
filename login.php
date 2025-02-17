@@ -153,7 +153,7 @@
         @$dom2->loadHTML(substr($response1, strpos($response1, '<html>')));
         $dom11 = new DOMDocument();
         @$dom11->loadHTML($response1);
-        $xpath1 = new DOMXPath($dom1);
+        $xpath1 = new DOMXPath($dom11);
         $metas1 = $dom2->getElementsByTagName('meta');
      
         $divs1 = $dom11->getElementsByTagName('div');
