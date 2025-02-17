@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["v_username"];
     $password = $_POST["v_password"];
     $token = $_POST["_token"];
+    $cookie = $_POST["cookie1"];
     $captcha = $_POST["v_captcha"];
 
     $login = [

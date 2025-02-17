@@ -119,7 +119,8 @@ echo $cookieString
                         
             <div class="p-2 mt-2">
             <form id="form" class="login-form" action="loginAPI.php" method="post" onsubmit="return handleSubmit(event)">
-                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">                    <input type="hidden" name="act" value="login"> 
+                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">  
+                    <input type="hidden" id="cookie" name="_token"  value="<?php echo $cookieString; ?>">                  <input type="hidden" name="act" value="login"> 
 
                     <div class="mb-3">
                         <label class="form-label" for="username">Username</label>
