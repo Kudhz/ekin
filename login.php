@@ -171,7 +171,6 @@
         $metas1 = $dom2->getElementsByTagName('meta');
         $captchaSrc1 = '';
         $divs1 = $dom11->getElementsByTagName('div');
-        echo "CAPTCHA Source: $captchaSrc \n";
 
         $elements1 = $xpath1->query("//div[@class='input-group div-img-captcha mt-2']/span/img");
 
@@ -217,8 +216,8 @@ $laravelSession1 = $cookies1['laravel_session'];
 $ts0168dff91 = $cookies1['TS0168dff9'];
 $ga1 = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
 $cookieString1 = "$ga1;XSRF-TOKEN=$xsrfToken1;laravel_session=$laravelSession1;TS0168dff9=$ts0168dff91";
-echo "CAPTCHA Source: $captchaSrc1 \n";
-echo $cookieString1;
+echo "CAPTCHA Source1: $captchaSrc1 \n";
+echo "cookie1 : $cookieString1 \n";
 ?>
 
 <div class="authentication-bg min-vh-100">
