@@ -86,10 +86,10 @@ foreach ($metas as $meta) {
     }
 }
 
-echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
-echo "laravel_session: " . $cookies['laravel_session'] . "\n";
-echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
-echo "CSRF Token: $csrf_token\n";
+// echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
+// echo "laravel_session: " . $cookies['laravel_session'] . "\n";
+// echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
+// echo "CSRF Token: $csrf_token\n";
 
 $xsrfToken = $cookies['XSRF-TOKEN'];
 $laravelSession = $cookies['laravel_session'];
