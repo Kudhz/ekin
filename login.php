@@ -143,24 +143,6 @@
         ]);
 
         $response1 = curl_exec($ch1);
-
-if ($response === false) {
-    echo 'cURL Error: ' . curl_error($ch1);
-} else {
-    // Extract headers from response
-    list($header, $body) = explode("\r\n\r\n", $response, 2);
-    echo 'Header: ' . $header . PHP_EOL;
-
-    // Check if response is compressed (gzip)
-    if (strpos($header, 'Content-Encoding: gzip') !== false) {
-        $body = gzdecode($body); // decompress if it is gzip
-    }
-    echo 'Body: ' . $body;
-    
-    // For debugging purposes, you could output the raw response for inspection
-    echo 'Raw Response: ' . $response;
-}
-
         curl_close($ch1);
 
         $headers2 = explode("\n", $response1);
@@ -217,6 +199,7 @@ echo "CAPTCHA Source: $captchaSrc \n";
 echo "CAPTCHA1 Source: $captchaSrc1 \n";
 echo "cookie : $cookieString \n";
 echo "cokkie1 : $cookieString1 \n";
+echo "header : $header \n";
 // echo "response : $response \n";
 echo "response1 : $response1 \n";
 ?>
