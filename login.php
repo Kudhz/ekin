@@ -155,12 +155,13 @@
         @$dom11->loadHTML($response1);
         $xpath1 = new DOMXPath($dom11);
         $metas1 = $dom2->getElementsByTagName('meta');
-        $captchaSrc1 = '';
+     
         $divs1 = $dom11->getElementsByTagName('div');
 
         $elements1 = $xpath1->query("//div[@class='input-group div-img-captcha mt-2']/span/img");
 
         // Jika ada elemen yang ditemukan
+        $captchaSrc1 = '';
         foreach ($elements1 as $element1) {
             $captchaSrc1 = $element1->getAttribute('src');
             break; // Penting untuk berhenti setelah menemukan elemen pertama, jika hanya ada satu
