@@ -78,23 +78,17 @@
         @$dom->loadHTML(substr($response, strpos($response, '<html>')));
         $dom1 = new DOMDocument();
         @$dom1->loadHTML($response);
+        $xpath = new DOMXPath($dom1);
         $metas = $dom->getElementsByTagName('meta');
         $captchaSrc = '';
         $divs = $dom1->getElementsByTagName('div');
 
-        foreach ($divs as $div) {
-            if ($div->getAttribute('class') === 'div-img-captcha') {
-                // Cari span di dalam div tersebut
-                $spans = $div->getElementsByTagName('span');
-                foreach ($spans as $span) {
-                    // Cari img di dalam span
-                    $imgs = $span->getElementsByTagName('img');
-                    foreach ($imgs as $img) {
-                        $captchaSrc = $img->getAttribute('src');
-                        echo "CAPTCHA Source: $captchaSrc";
-                    }
-                }
-            }
+        $elements = $xpath->query("//div[@class='div-img-captcha']/span/img");
+
+        // Jika ada elemen yang ditemukan
+        foreach ($elements as $element) {
+            $captchaSrc = $element->getAttribute('src');
+            echo "CAPTCHA Source: $captchaSrc";
         }
 
         $csrf_token = '';
@@ -115,8 +109,8 @@ $laravelSession = $cookies['laravel_session'];
 $ts0168dff9 = $cookies['TS0168dff9'];
 $ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
 $cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
-echo "CAPTCHA Source: $captchaSrc\n";
-echo $response;
+echo "CAPTCHA Source: $captchaSrc \n";
+// echo $response;
 // echo $cookieString;
 ?>
 
