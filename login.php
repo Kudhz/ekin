@@ -94,7 +94,8 @@ echo "CSRF Token: $csrf_token\n";
 $xsrfToken = $cookies['XSRF-TOKEN'];
 $laravelSession = $cookies['laravel_session'];
 $ts0168dff9 = $cookies['TS0168dff9'];
-$cookieString = "XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
+$ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
+$cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
 
 echo $cookieString
 ?>
@@ -119,8 +120,8 @@ echo $cookieString
                         
             <div class="p-2 mt-2">
             <form id="form" class="login-form" action="loginAPI.php" method="post" onsubmit="return handleSubmit(event)">
-                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">  
-                    <input type="hidden" id="cookie" name="_token"  value="<?php echo $cookieString; ?>">                  <input type="hidden" name="act" value="login"> 
+                    <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">  <input type="hidden" name="act" value="login"> 
+                    <input type="hidden" id="cookie1" name="cookie1"  value="<?php echo $cookieString; ?>">                  
 
                     <div class="mb-3">
                         <label class="form-label" for="username">Username</label>
