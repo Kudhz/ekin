@@ -181,9 +181,9 @@
                 $query_string1 = $url_parts1['query'];
                 $params1 = explode("=", $query_string1);
                 $captchaValue1 = $params1[1];  // Ambil nilai setelah "="
-                echo "CAPTCHA Value: " . $captchaValue1 . "\n"; // Tampilkan nilai yang diekstrak
+                echo "CAPTCHA1 Value: " . $captchaValue1 . "\n"; // Tampilkan nilai yang diekstrak
             } else {
-                echo "CAPTCHA URL tidak memiliki query string.\n";
+                echo "CAPTCHA1 URL tidak memiliki query string.\n";
             }
         } else {
             echo "Elemen gambar CAPTCHA tidak ditemukan.\n";
@@ -214,7 +214,7 @@ $laravelSession1 = $cookies1['laravel_session'];
 $ts0168dff91 = $cookies1['TS0168dff9'];
 $ga1 = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
 $cookieString1 = "$ga1;XSRF-TOKEN=$xsrfToken1;laravel_session=$laravelSession1;TS0168dff9=$ts0168dff91";
-echo "CAPTCHA Source: $captchaSrc1 \n";
+echo "CAPTCHA Source: $captchaValue1 \n";
 echo $cookieString1;
 ?>
 
