@@ -137,7 +137,7 @@
             // CURLOPT_GET => true,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER => true,
-            CURLOPT_HTTPHEADER => $headers1,
+            // CURLOPT_HTTPHEADER => $headers1,
             CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
             CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
         ]);
