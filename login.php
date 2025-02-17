@@ -192,6 +192,8 @@ echo "CAPTCHA Source: $captchaSrc \n";
 echo "CAPTCHA1 Source: $captchaSrc1 \n";
 echo "cookie : $cookieString \n";
 echo "cokkie1 : $cookieString1 \n";
+echo "response : $response \n";
+echo "response1 : $response1 \n";
 ?>
 
 <div class="authentication-bg min-vh-100">
