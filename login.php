@@ -76,9 +76,11 @@
 
         $dom = new DOMDocument();
         @$dom->loadHTML(substr($response, strpos($response, '<html>')));
+        $dom1 = new DOMDocument();
+        @$dom1->loadHTML($response);
         $metas = $dom->getElementsByTagName('meta');
         $captchaSrc = '';
-        $divs = $dom->getElementsByTagName('div');
+        $divs = $dom1->getElementsByTagName('div');
 
         foreach ($divs as $div) {
             if ($div->getAttribute('class') === 'div-img-captcha') {
