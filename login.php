@@ -67,7 +67,9 @@ $cookie = '';
 foreach ($headers as $header) {
     if (strpos($header, 'Set-Cookie:') !== false) {
         $cookie = trim(substr($header, strpos($header, ':') + 1));
-        break;
+        $cookie_name = explode('=', $cookie)[0];
+        $cookie_value = explode('=', $cookie)[1];
+        $cookies[$cookie_name] = $cookie_value;
     }
 }
 
@@ -83,7 +85,9 @@ foreach ($metas as $meta) {
     }
 }
 
-echo "Cookie: $cookie\n";
+echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
+echo "laravel_session: " . $cookies['laravel_session'] . "\n";
+echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
 echo "CSRF Token: $csrf_token\n";
 
 ?>
