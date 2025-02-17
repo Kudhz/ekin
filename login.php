@@ -133,13 +133,11 @@
         ];
 
         $ch1 = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
-         curl_setopt_array($ch1, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HEADER => true,
-            CURLOPT_HTTPHEADER => $headers,
-            CURLOPT_SSL_VERIFYPEER => false, // **DO NOT DISABLE IN PRODUCTION**
-            CURLOPT_SSL_VERIFYHOST => false, // **DO NOT DISABLE IN PRODUCTION**
-        ]);
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true); // Capture response instead of printing
+        curl_setopt($ch1, CURLOPT_HEADER, true);        // Include header in the output
+        curl_setopt($ch1, CURLOPT_HTTPHEADER, $headers1); // Set HTTP headers
+        curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL peer verification (not recommended for production)
+        curl_setopt($ch1, CURLOPT_SSL_VERIFYHOST, false); // Disable SSL host verification (not recommended for production)
 
         $response1 = curl_exec($ch1);
         curl_close($ch1);
