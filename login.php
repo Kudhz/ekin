@@ -56,31 +56,32 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-    <?php $ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
+<?php
+$ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HEADER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 
 $headers = explode("\n", $response);
-$cookie = '';
+$cookies = array();
 foreach ($headers as $header) {
     if (strpos($header, 'Set-Cookie:') !== false) {
         $cookie = trim(substr($header, strpos($header, ':') + 1));
-        $cookie_name = explode('=', $cookie)[0];
-        $cookie_value = explode('=', $cookie)[1];
-        $cookies[$cookie_name] = $cookie_value;
+        $cookie_parts = explode(';', $cookie);
+        $cookie_name_value = explode('=', $cookie_parts[0]);
+        $cookies[$cookie_name_value[0]] = $cookie_name_value[1];
     }
 }
 
 $dom = new DOMDocument();
-@$dom->loadHTML($response);
+@$dom->loadHTML(substr($response, strpos($response, '<html>')));
 $metas = $dom->getElementsByTagName('meta');
 
+$csrf_token = '';
 foreach ($metas as $meta) {
     if ($meta->getAttribute('name') == 'csrf-token') {
         $csrf_token = $meta->getAttribute('content');
-        // echo $csrf_token;
         break;
     }
 }
@@ -89,8 +90,8 @@ echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
 echo "laravel_session: " . $cookies['laravel_session'] . "\n";
 echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
 echo "CSRF Token: $csrf_token\n";
-
 ?>
+
 <div class="authentication-bg min-vh-100">
         <div class="bg-overlay bg-light"></div>
         <div class="container">
