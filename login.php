@@ -81,13 +81,19 @@
         $divs = $dom->getElementsByTagName('div');
 
         foreach ($divs as $div) {
-        if ($div->getAttribute('class') === 'div-img-captcha') {
-            $imgs = $div->getElementsByTagName('img');
-        foreach ($imgs as $img) {
-            $captchaSrc = $img->getAttribute('src');
+            if ($div->getAttribute('class') === 'div-img-captcha') {
+                // Cari span di dalam div tersebut
+                $spans = $div->getElementsByTagName('span');
+                foreach ($spans as $span) {
+                    // Cari img di dalam span
+                    $imgs = $span->getElementsByTagName('img');
+                    foreach ($imgs as $img) {
+                        $captchaSrc = $img->getAttribute('src');
+                        echo "CAPTCHA Source: $captchaSrc";
+                    }
+                }
+            }
         }
-    }
-}
 
         $csrf_token = '';
         foreach ($metas as $meta) {
