@@ -93,7 +93,7 @@ foreach ($metas as $meta) {
                 </div>   
                         
             <div class="p-2 mt-2">
-                <form id="form-action" action="loginAPI.php" class="login-form">
+            <form id="form" class="login-form" action="loginAPI.php" method="post" onsubmit="return handleSubmit(event)">
                     <input type="hidden" id="_token" name="_token"  value="<?php echo $csrf_token; ?>">                    <input type="hidden" name="act" value="login"> 
 
                     <div class="mb-3">
