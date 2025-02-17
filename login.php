@@ -77,15 +77,15 @@ foreach ($headers as $header) {
 $dom = new DOMDocument();
 @$dom->loadHTML(substr($response, strpos($response, '<html>')));
 $metas = $dom->getElementsByTagName('meta');
-
 $divCaptcha = $dom->getElementsByTagName('div');
+
 foreach ($divCaptcha as $div) {
     if ($div->getAttribute('class') === 'div-img-captcha') {
         // Dapatkan tag <img> di dalam div tersebut
         $imgs = $div->getElementsByTagName('img');
         foreach ($imgs as $img) {
             $captchaSrc = $img->getAttribute('src');
-            echo "CAPTCHA Source: $captchaSrc\n";
+            
         }
     }
 }
@@ -108,7 +108,7 @@ $laravelSession = $cookies['laravel_session'];
 $ts0168dff9 = $cookies['TS0168dff9'];
 $ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
 $cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
-
+echo "CAPTCHA Source: $captchaSrc\n";
 echo $cookieString
 ?>
 
