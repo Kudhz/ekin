@@ -183,7 +183,7 @@ echo "CAPTCHA Source: $captchaSrc \n";
                                 <div class="form-group text-right">
                                     <div class="input-group div-img-captcha mt-2">
                                         <span>
-                                            <img src="https://e-kinerja.kemenhub.go.id/captcha/flat?3WODiJqE" >
+                                            <img src="<?php echo $captchaSrc ?>" >
                                         </span>
                                         <a href="javascript:void(0);" class="refreshCaptcha text-danger ml-2 mt-1">
                                             <i class="fa fa-refresh"></i> Reload Captcha</a>
