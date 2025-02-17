@@ -113,18 +113,20 @@
             "Host: e-kinerja.kemenhub.go.id",
             "Cookie: $cookieString",
             "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
-            "Accept: */*",
+            "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
             "Accept-Language: en-US,en;q=0.5",
             "Accept-Encoding: gzip, deflate, br",
+            "Upgrade-Insecure-Requests: 1",
             "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
             "X-Csrf-Token: $csrf_token", // **Get CSRF token dynamically (see function below)**
             "X-Requested-With: XMLHttpRequest",
             // "Content-Length: " . strlen($postString6),
             "Origin: https://e-kinerja.kemenhub.go.id",
             "Referer: https://e-kinerja.kemenhub.go.id/auth/login", // **Verify correct Referer**
-            "Sec-Fetch-Dest: empty",
-            "Sec-Fetch-Mode: cors",
-            "Sec-Fetch-Site: same-origin",
+            "Sec-Fetch-Dest: document",
+            "Sec-Fetch-Mode: navigate",
+            "Sec-Fetch-Site: none",
+            "Sec-Fetch-User: ?1",
             "Priority: u=0",
             "Te: trailers",
             "Connection: keep-alive",
@@ -251,7 +253,7 @@ echo "response1 : $response1 \n";
                                 <div class="form-group text-right">
                                     <div class="input-group div-img-captcha mt-2">
                                         <span>
-                                            <img src="<?php echo $captchaSrc ?>">
+                                            <img src="<?php echo $captchaSrc1 ?>">
                                         </span>
                                         <a href="javascript:void(0);" class="refreshCaptcha text-danger ml-2 mt-1">
                                             <i class="fa fa-refresh"></i> Reload Captcha</a>
