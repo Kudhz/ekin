@@ -58,6 +58,7 @@
 <body>
     <?php $ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HEADER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 
