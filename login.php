@@ -143,6 +143,7 @@ foreach ($metas as $meta) {
                     
                     <div class="mt-3 mb-2">
                         <button class="btn btn-primary w-100 waves-effect waves-light" type="submit">MASUK</button>
+                        <a class="btn btn-primary w-100 waves-effect waves-light" href="https://e-kinerja.kemenhub.go.id/logout"><i class="mdi mdi-logout text-muted font-size-16 align-middle me-2"></i> <span class="align-middle">Logout</span></a>
                     </div>
 
                 </form>
