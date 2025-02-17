@@ -134,7 +134,7 @@
 
         $ch1 = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
          curl_setopt_array($ch1, [
-            CURLOPT_GET => true,
+            // CURLOPT_GET => true,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_HEADER => true,
             CURLOPT_HTTPHEADER => $headers1,
