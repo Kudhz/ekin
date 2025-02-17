@@ -61,6 +61,15 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 
+$headers = explode("\n", $response);
+$cookie = '';
+foreach ($headers as $header) {
+    if (strpos($header, 'Set-Cookie:') !== false) {
+        $cookie = trim(substr($header, strpos($header, ':') + 1));
+        break;
+    }
+}
+
 $dom = new DOMDocument();
 @$dom->loadHTML($response);
 $metas = $dom->getElementsByTagName('meta');
@@ -68,10 +77,13 @@ $metas = $dom->getElementsByTagName('meta');
 foreach ($metas as $meta) {
     if ($meta->getAttribute('name') == 'csrf-token') {
         $csrf_token = $meta->getAttribute('content');
-        echo $csrf_token;
+        // echo $csrf_token;
         break;
     }
 }
+
+echo "Cookie: $cookie\n";
+echo "CSRF Token: $csrf_token\n";
 
 ?>
 <div class="authentication-bg min-vh-100">
