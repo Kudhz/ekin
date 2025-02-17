@@ -92,21 +92,7 @@
             $captchaSrc = $element->getAttribute('src');
             break; // Penting untuk berhenti setelah menemukan elemen pertama, jika hanya ada satu
         }
-        
-        // *** PERBAIKAN: Ekstraksi nilai setelah tanda tanya ***
-        if ($captchaSrc) {
-            $url_parts = parse_url($captchaSrc);
-            if (isset($url_parts['query'])) {
-                $query_string = $url_parts['query'];
-                $params = explode("=", $query_string);
-                $captchaValue = $params[1];  // Ambil nilai setelah "="
-                echo "CAPTCHA Value: " . $captchaValue . "\n"; // Tampilkan nilai yang diekstrak
-            } else {
-                echo "CAPTCHA URL tidak memiliki query string.\n";
-            }
-        } else {
-            echo "Elemen gambar CAPTCHA tidak ditemukan.\n";
-        }
+
         
 
         $csrf_token = '';
@@ -178,21 +164,6 @@
         foreach ($elements1 as $element1) {
             $captchaSrc1 = $element1->getAttribute('src');
             break; // Penting untuk berhenti setelah menemukan elemen pertama, jika hanya ada satu
-        }
-        
-        // *** PERBAIKAN: Ekstraksi nilai setelah tanda tanya ***
-        if ($captchaSrc1) {
-            $url_parts1 = parse_url($captchaSrc1);
-            if (isset($url_parts1['query'])) {
-                $query_string1 = $url_parts1['query'];
-                $params1 = explode("=", $query_string1);
-                $captchaValue1 = $params1[1];  // Ambil nilai setelah "="
-                echo "CAPTCHA1 Value: " . $captchaValue1 . "\n"; // Tampilkan nilai yang diekstrak
-            } else {
-                echo "CAPTCHA1 URL tidak memiliki query string.\n";
-            }
-        } else {
-            echo "Elemen gambar CAPTCHA tidak ditemukan.\n";
         }
         
 
