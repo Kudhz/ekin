@@ -325,5 +325,7 @@ echo "response1 : $response1 \n";
     return false;
         }
     </script>
+
+<script src="https://e-kinerja.kemenhub.go.id/pages/auth/login.js?v=OfG1yEDtiVerO2H1Zr6oN4IyaWy7kDkJCEQ47c8g"></script>
 </body>
 </html>
