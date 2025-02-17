@@ -132,7 +132,7 @@
             "Connection: keep-alive",
         ];
 
-        $ch1 = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
+        $ch1 = curl_init("$captchaSrc");
          curl_setopt_array($ch1, [
             // CURLOPT_GET => true,
             CURLOPT_RETURNTRANSFER => true,
