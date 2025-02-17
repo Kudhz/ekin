@@ -60,7 +60,6 @@
         $ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_BODY, true);
         $response = curl_exec($ch);
         curl_close($ch);
 
@@ -80,7 +79,7 @@
         $metas = $dom->getElementsByTagName('meta');
         $captchaSrc = '';
         $divs = $dom->getElementsByTagName('div');
-        
+
         foreach ($divs as $div) {
         if ($div->getAttribute('class') === 'div-img-captcha') {
             $imgs = $div->getElementsByTagName('img');
@@ -109,7 +108,7 @@ $ts0168dff9 = $cookies['TS0168dff9'];
 $ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
 $cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
 echo "CAPTCHA Source: $captchaSrc\n";
-echo $response;
+echo $dom;
 // echo $cookieString;
 ?>
 
