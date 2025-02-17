@@ -78,6 +78,18 @@ $dom = new DOMDocument();
 @$dom->loadHTML(substr($response, strpos($response, '<html>')));
 $metas = $dom->getElementsByTagName('meta');
 
+$divCaptcha = $dom->getElementsByTagName('div');
+foreach ($divCaptcha as $div) {
+    if ($div->getAttribute('class') === 'div-img-captcha') {
+        // Dapatkan tag <img> di dalam div tersebut
+        $imgs = $div->getElementsByTagName('img');
+        foreach ($imgs as $img) {
+            $captchaSrc = $img->getAttribute('src');
+            echo "CAPTCHA Source: $captchaSrc\n";
+        }
+    }
+}
+
 $csrf_token = '';
 foreach ($metas as $meta) {
     if ($meta->getAttribute('name') == 'csrf-token') {
