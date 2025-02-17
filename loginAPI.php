@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $headers = [
         "Host: e-kinerja.kemenhub.go.id",
-        "Cookie: $cookie",
+        "Cookie: $cookies",
         "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
         "Accept: */*",
         "Accept-Language: en-US,en;q=0.5",
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "X-Requested-With: XMLHttpRequest",
         // "Content-Length: " . strlen($postString6),
         "Origin: https://e-kinerja.kemenhub.go.id",
-        "Referer: https://e-kinerja.kemenhub.go.id/skp/renaksi/262030", // **Verify correct Referer**
+        "Referer: https://e-kinerja.kemenhub.go.id/auth/login", // **Verify correct Referer**
         "Sec-Fetch-Dest: empty",
         "Sec-Fetch-Mode: cors",
         "Sec-Fetch-Site: same-origin",
