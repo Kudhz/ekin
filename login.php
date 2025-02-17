@@ -58,29 +58,21 @@
 <body>
     <?php $ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_HEADER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 
-$cookies = array();
-preg_match_all('/Set-Cookie:(?<cookie>\s{0,}.*)$/m', $response, $matches);
-foreach($matches[1] as $item) {
-    parse_str($item, $cookie);
-    $cookies = array_merge($cookies, $cookie);
-}
 $dom = new DOMDocument();
-$dom->loadHTML($response);
-$inputs = $dom->getElementsByTagName('input');
-foreach ($inputs as $input) {
-    if ($input->getAttribute('name') == '_token') {
-        $csrfToken = $input->getAttribute('value');
+@$dom->loadHTML($response);
+$metas = $dom->getElementsByTagName('meta');
+
+foreach ($metas as $meta) {
+    if ($meta->getAttribute('name') == 'csrf-token') {
+        $csrf_token = $meta->getAttribute('content');
+        echo $csrf_token;
         break;
     }
 }
 
-$csrf_token = $cookies['XSRF-TOKEN'];
-
-echo $csrf_token;
 ?>
 <div class="authentication-bg min-vh-100">
         <div class="bg-overlay bg-light"></div>
