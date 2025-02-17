@@ -81,11 +81,13 @@ $dom->loadHTML($response);
 
 // Extract CAPTCHA source
 $captchaSrc = '';
-$divCaptcha = $dom->querySelector('div.div-img-captcha');
-if ($divCaptcha) {
-    $img = $divCaptcha->querySelector('img');
-    if ($img) {
-        $captchaSrc = $img->getAttribute('src');
+$divs = $dom->getElementsByTagName('div');
+foreach ($divs as $div) {
+    if ($div->getAttribute('class') === 'div-img-captcha') {
+        $imgs = $div->getElementsByTagName('img');
+        foreach ($imgs as $img) {
+            $captchaSrc = $img->getAttribute('src');
+        }
     }
 }
 
@@ -93,7 +95,7 @@ if ($divCaptcha) {
 $csrf_token = '';
 $metas = $dom->getElementsByTagName('meta');
 foreach ($metas as $meta) {
-    if ($meta->getAttribute('name') == 'csrf-token') {
+    if ($meta->getAttribute('name') === 'csrf-token') {
         $csrf_token = $meta->getAttribute('content');
         break;
     }
@@ -109,9 +111,9 @@ if (!empty($cookies)) {
 }
 
 // Output results
-echo "CAPTCHA Source: {$captchaSrc}\n";
-echo "Cookie String: {$cookieString}\n";
-echo "CSRF Token: {$csrf_token}\n";
+echo "CAPTCHA Source: $captchaSrc\n";
+echo "Cookie String: $cookieString\n";
+echo "CSRF Token: $csrf_token\n";
 ?>
 
 
