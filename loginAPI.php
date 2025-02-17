@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $headers = [
         "Host: e-kinerja.kemenhub.go.id",
-        "Cookie: $cookies",
+        "Cookie: $cookie",
         "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
         "Accept: */*",
         "Accept-Language: en-US,en;q=0.5",
