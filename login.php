@@ -90,6 +90,13 @@ echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
 echo "laravel_session: " . $cookies['laravel_session'] . "\n";
 echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
 echo "CSRF Token: $csrf_token\n";
+
+$xsrfToken = $cookies['XSRF-TOKEN'];
+$laravelSession = $cookies['laravel_session'];
+$ts0168dff9 = $cookies['TS0168dff9'];
+$cookieString = "XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
+
+echo $cookieString
 ?>
 
 <div class="authentication-bg min-vh-100">
