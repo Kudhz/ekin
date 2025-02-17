@@ -57,7 +57,8 @@
 </head>
 <body>
     <?php
-    
+
+        
         $ch = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HEADER, true);
@@ -116,19 +117,108 @@
             }
         }
 
+        $xsrfToken = $cookies['XSRF-TOKEN'];
+        $laravelSession = $cookies['laravel_session'];
+        $ts0168dff9 = $cookies['TS0168dff9'];
+        $ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
+        $cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
+
+        $headers1 = [
+            "Host: e-kinerja.kemenhub.go.id",
+            "Cookie: $cookieString",
+            "User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:134.0) Gecko/20100101 Firefox/134.0",
+            "Accept: */*",
+            "Accept-Language: en-US,en;q=0.5",
+            "Accept-Encoding: gzip, deflate, br",
+            "Content-Type: application/x-www-form-urlencoded; charset=UTF-8",
+            "X-Csrf-Token: $csrf_token", // **Get CSRF token dynamically (see function below)**
+            "X-Requested-With: XMLHttpRequest",
+            // "Content-Length: " . strlen($postString6),
+            "Origin: https://e-kinerja.kemenhub.go.id",
+            "Referer: https://e-kinerja.kemenhub.go.id/auth/login", // **Verify correct Referer**
+            "Sec-Fetch-Dest: empty",
+            "Sec-Fetch-Mode: cors",
+            "Sec-Fetch-Site: same-origin",
+            "Priority: u=0",
+            "Te: trailers",
+            "Connection: keep-alive",
+        ];
+
+        $ch1 = curl_init('https://e-kinerja.kemenhub.go.id/auth/login');
+        curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch1, CURLOPT_HEADER, true);
+        curl_setopt($ch1, CURLOPT_HTTPHEADER , $headers1);
+
+        $response1 = curl_exec($ch1);
+        curl_close($ch1);
+
+        $headers2 = explode("\n", $response1);
+        $cookies1 = array();
+        foreach ($headers2 as $header2) {
+            if (strpos($header2, 'Set-Cookie:') !== false) {
+                $cookie1 = trim(substr($header2, strpos($header2, ':') + 1));
+                $cookie_parts1 = explode(';', $cookie1);
+                $cookie_name_value1 = explode('=', $cookie_parts1[0]);
+                $cookies1[$cookie_name_value1[0]] = $cookie_name_value1[1];
+            }
+        }
+
+        $dom2 = new DOMDocument();
+        @$dom2->loadHTML(substr($response1, strpos($response1, '<html>')));
+        $dom11 = new DOMDocument();
+        @$dom11->loadHTML($response1);
+        $xpath1 = new DOMXPath($dom11);
+        $metas1 = $dom2->getElementsByTagName('meta');
+        $captchaSrc1 = '';
+        $divs1 = $dom11->getElementsByTagName('div');
+        echo "CAPTCHA Source: $captchaSrc \n";
+
+        $elements1 = $xpath1->query("//div[@class='input-group div-img-captcha mt-2']/span/img");
+
+        // Jika ada elemen yang ditemukan
+        foreach ($elements1 as $element1) {
+            $captchaSrc1 = $element1->getAttribute('src');
+            break; // Penting untuk berhenti setelah menemukan elemen pertama, jika hanya ada satu
+        }
+        
+        // *** PERBAIKAN: Ekstraksi nilai setelah tanda tanya ***
+        if ($captchaSrc1) {
+            $url_parts1 = parse_url($captchaSrc1);
+            if (isset($url_parts1['query'])) {
+                $query_string1 = $url_parts1['query'];
+                $params1 = explode("=", $query_string1);
+                $captchaValue1 = $params1[1];  // Ambil nilai setelah "="
+                echo "CAPTCHA1 Value: " . $captchaValue1 . "\n"; // Tampilkan nilai yang diekstrak
+            } else {
+                echo "CAPTCHA1 URL tidak memiliki query string.\n";
+            }
+        } else {
+            echo "Elemen gambar CAPTCHA tidak ditemukan.\n";
+        }
+        
+
+        $csrf_token1 = '';
+        foreach ($metas1 as $meta1) {
+            if ($meta1->getAttribute('name') == 'csrf-token') {
+                $csrf_token1 = $meta1->getAttribute('content');
+                break;
+            }
+        }
+
 // echo "XSRF-TOKEN: " . $cookies['XSRF-TOKEN'] . "\n";
 // echo "laravel_session: " . $cookies['laravel_session'] . "\n";
 // echo "TS0168dff9: " . $cookies['TS0168dff9'] . "\n";
 // echo "CSRF Token: $csrf_token\n";
 
-$xsrfToken = $cookies['XSRF-TOKEN'];
-$laravelSession = $cookies['laravel_session'];
-$ts0168dff9 = $cookies['TS0168dff9'];
-$ga = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
-$cookieString = "$ga;XSRF-TOKEN=$xsrfToken;laravel_session=$laravelSession;TS0168dff9=$ts0168dff9";
-echo "CAPTCHA Source: $captchaSrc \n";
-// echo $response;
-// echo $cookieString;
+
+
+$xsrfToken1 = $cookies1['XSRF-TOKEN'];
+$laravelSession1 = $cookies1['laravel_session'];
+$ts0168dff91 = $cookies1['TS0168dff9'];
+$ga1 = "_ga_B2LYNLLX1B=GS1.1.1737566083.9.1.1737566107.0.0.0; _ga=GA1.1.72744355.1734843507; _clck=2wm2yo%7C2%7Cfss%7C0%7C1817;";
+$cookieString1 = "$ga1;XSRF-TOKEN=$xsrfToken1;laravel_session=$laravelSession1;TS0168dff9=$ts0168dff91";
+echo "CAPTCHA Source: $captchaSrc1 \n";
+echo $cookieString1;
 ?>
 
 <div class="authentication-bg min-vh-100">
