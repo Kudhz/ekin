@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['status' => 'error', 'message' => curl_error($ch7)]);
     } else {
         http_response_code(200);
-        echo json_encode(['status' => 'success', 'message']);
+        echo json_encode(['status' => 'success', 'message' => $response7]);
     }
 
     curl_close($ch7);
