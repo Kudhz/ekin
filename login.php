@@ -83,7 +83,7 @@
         $captchaSrc = '';
         $divs = $dom1->getElementsByTagName('div');
 
-        $elements = $xpath->query("//div[@class='div-img-captcha']/span/img");
+        $elements = $xpath->query("//div[@class='input-group div-img-captcha mt-2']/span/img");
 
         // Jika ada elemen yang ditemukan
         foreach ($elements as $element) {
