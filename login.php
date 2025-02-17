@@ -88,8 +88,24 @@
         // Jika ada elemen yang ditemukan
         foreach ($elements as $element) {
             $captchaSrc = $element->getAttribute('src');
-            echo "CAPTCHA Source: $captchaSrc";
+            break; // Penting untuk berhenti setelah menemukan elemen pertama, jika hanya ada satu
         }
+        
+        // *** PERBAIKAN: Ekstraksi nilai setelah tanda tanya ***
+        if ($captchaSrc) {
+            $url_parts = parse_url($captchaSrc);
+            if (isset($url_parts['query'])) {
+                $query_string = $url_parts['query'];
+                $params = explode("=", $query_string);
+                $captchaValue = $params[1];  // Ambil nilai setelah "="
+                echo "CAPTCHA Value: " . $captchaValue . "\n"; // Tampilkan nilai yang diekstrak
+            } else {
+                echo "CAPTCHA URL tidak memiliki query string.\n";
+            }
+        } else {
+            echo "Elemen gambar CAPTCHA tidak ditemukan.\n";
+        }
+        
 
         $csrf_token = '';
         foreach ($metas as $meta) {
