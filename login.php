@@ -73,6 +73,16 @@ foreach ($metas as $meta) {
     }
 }
 
+$dom = new DOMDocument();
+$dom->loadHTML($response);
+$inputs = $dom->getElementsByTagName('input');
+foreach ($inputs as $input) {
+    if ($input->getAttribute('name') == '_token') {
+        $csrfToken = $input->getAttribute('value');
+        break;
+    }
+}
+
 ?>
 <div class="authentication-bg min-vh-100">
         <div class="bg-overlay bg-light"></div>
@@ -94,7 +104,7 @@ foreach ($metas as $meta) {
                         
             <div class="p-2 mt-2">
                 <form id="form-action" action="https://e-kinerja.kemenhub.go.id/auth/login" class="login-form">
-                    <input type="hidden" name="_token" value="$csrf_token">                    <input type="hidden" name="act" value="login"> 
+                    <input type="hidden" name="_token" value="">                    <input type="hidden" name="act" value="login"> 
 
                     <div class="mb-3">
                         <label class="form-label" for="username">Username</label>
