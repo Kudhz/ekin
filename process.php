@@ -29,7 +29,7 @@ Menyampaikan Laporan Dokumen Laporan kegiatan penyediaan , perawatan / pemelihar
 
     for ($i = 0; $i < 18; $i++) {
         $id = $_POST["id"];
-        $currentId = $id + ($i * 2);
+        $currentId = $id + ($i * 3);
         $value = $values[floor($i / 3) % $totalValues];
         $renaksi = [
             'id' => $currentId,      // Include the ID
